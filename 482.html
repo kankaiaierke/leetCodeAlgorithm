@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {string} S
+ * @param {number} K
+ * @return {string}
+ */
+var licenseKeyFormatting = function(S, K) {
+	while(S.indexOf('-')>=0){
+		S=S.replace('-','');
+	};
+	S=S.toLocaleUpperCase().split('').reverse();
+	console.log(S);
+	var res=[];
+	while(S.length>=K){
+		res.push(S.splice(0,K).reverse().join(''));
+	};
+	if(S.length>0){
+		res.push(S.reverse().join(''));
+	};
+    console.log(res.reverse().join('-'));
+    return res.reverse().join('-');
+};
+var res=new licenseKeyFormatting("5F3Z-2e-9-w",4);
+</script>
+</html>

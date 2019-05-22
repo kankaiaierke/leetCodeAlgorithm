@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {string} ransomNote
+ * @param {string} magazine
+ * @return {boolean}
+ */
+var canConstruct = function(ransomNote, magazine) {
+    arr1=ransomNote.split('');
+	arr2=magazine.split('');
+	for(var i=0;i<arr1.length;i++){
+		var index=aAronDie(arr2,arr1[i]);
+		if(index>=0){
+			arr2.splice(index,1);
+		}else{
+			console.log(false);
+			return false;
+		};
+	};
+	console.log(true);
+	return true;
+};
+function aAronDie(arr,obj){
+	for(var i=0;i<arr.length;i++){
+		if(arr[i]==obj){
+			return i;
+		};
+	};
+	return -1;
+};
+var res=new canConstruct("aa", "aab");
+</script>
+</html>

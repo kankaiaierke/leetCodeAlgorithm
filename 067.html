@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {string} a
+ * @param {string} b
+ * @return {string}
+ */
+var addBinary = function(a, b) {
+			var  result=[];
+			var  c=0,num=0;
+			a=a.split('');
+			b=b.split('');
+			var i=a.length-1,j=b.length-1;
+			var k;
+			if(i<j){
+				k=i;
+			}else{
+				k=j;
+			};
+			for(;k>=0;k--){
+				num=parseInt(a[i])+parseInt(b[j])+c;
+				c=0;
+				if(num==2){
+					num=0;
+					c=1;
+				};
+				if(num==3){
+					num=1;
+					c=1;
+				};
+				result.unshift(num);
+				i--;
+				j--;
+			};
+			console.log(result);
+			if(i==-1){
+				for(;j>=0;j--){
+					num=parseInt(b[j])+c;
+					c=0;
+					if(num==2){
+						num=0;
+						c=1;
+					};
+					if(num==3){
+						num=1;
+						c=1;
+					};
+					result.unshift(num);
+				};
+			}else{
+				for(;i>=0;i--){
+					num=parseInt(a[i])+c;
+					c=0;
+					if(num==2){
+						num=0;
+						c=1;
+					};
+					if(num==3){
+						num=1;
+						c=1;
+					};
+					result.unshift(num);
+				};
+			};
+			if(c==1){
+				result.unshift(c);
+			};
+			result=result.join('');
+			console.log(result);
+			return result;
+		};
+</script>
+</html>

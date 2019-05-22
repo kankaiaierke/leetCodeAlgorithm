@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number[]} nums1
+ * @param {number} m
+ * @param {number[]} nums2
+ * @param {number} n
+ * @return {void} Do not return anything, modify nums1 in-place instead.
+ */
+var merge = function(nums1, m, nums2, n) {
+			var k;
+			for(j in nums2){
+				for(var i in nums1){
+					if(nums2[j]<nums1[i]||i>=m){
+						k=i;
+						break;
+					};
+				};
+				console.log(k);
+				for(var i=nums1.length-1;i>k;i--){
+					nums1[i]=nums1[i-1];
+				};
+				nums1[k]=nums2[j];
+				console.log(nums1);
+				m++;
+			};
+		};
+</script>
+</html>

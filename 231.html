@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number} n
+ * @return {boolean}
+ */
+var isPowerOfTwo = function(n) {
+	if(n<2){
+		console.log(false);
+		return false;
+	};
+    for(var i=2;i<n;i*=2){
+		if(n%i!=0){
+			console.log(false);
+			return false;
+		};
+	};
+	console.log(true);
+	return true;
+};
+var res=new isPowerOfTwo(1008);
+</script>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+ * @param {string[]} logs
+ * @return {string[]}
+ */
+var reorderLogFiles = function(logs) {
+	var arr=[];
+    for(var i=0;i<logs.length;){
+    	var str=logs[i].replace(" ","@");
+    	str=str.split("@");
+    	while(str[1].indexOf(" ")>=0){
+    		str[1]=str[1].replace(" ","");
+    	};
+    	if(isNaN(str[1]*1)){
+    		var obj=logs[i];
+    		logs.splice(i,1);
+    		arr.push(obj.replace(" ","@").split('@')[1]+'@'+obj);
+    	}else{
+    		i++;
+    	};
+    };
+    arr=arr.sort();
+    for(var i=arr.length-1;i>=0;i--){
+    	logs.unshift(arr[i].split('@')[1]);
+    };
+    console.log(logs);
+    return logs;
+};
+		res = new reorderLogFiles(["a1 9 2 3 1","g1 act car","zo4 4 7","ab1 off key dog","a8 act zoo"]);
+	</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number} n - a positive integer
+ * @return {number} - a positive integer
+ */
+var reverseBits = function(n) {
+	n=n.toString(2).split('');
+	var res=1;
+	var sum=0;
+	while(n.length<32){
+		n.unshift('0');
+	};
+	for(var i=0;i<n.length;i++){
+		sum+=res*n[i];
+		res*=2;
+	};
+	console.log(sum);
+    return sum;
+};
+var aAronDie=new reverseBits(1);
+</script>
+</html>

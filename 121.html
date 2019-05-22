@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number[]} prices
+ * @return {number}
+ */
+var maxProfit = function(prices) {
+	var max=0;
+    for(var i=prices.length-1;i>=0;i--){
+		for(var j=i;j>=0;j--){
+			if(prices[i]-prices[j]>max){
+				max=prices[i]-prices[j];
+			};
+		};
+	};
+	console.log(max);
+	return max;
+};
+var allenDie=new maxProfit([7,1,5,3,6,4]);
+</script>
+</html>

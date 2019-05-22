@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+var checkPossibility = function(nums) {
+    var count=0;
+    for(var i=0;i<nums.length-1;i++){
+    	if(nums[i]>nums[i+1]){
+    		count++;
+    		if((i>0&&nums[i+1]<nums[i-1])&&(i<nums.length-2&&nums[i+2]<nums[i])){
+    			console.log(nums[i]);
+    			console.log(false);
+    			return false;
+    		};
+    	};
+    };
+    console.log(count);
+    return count<=1;
+};
+var res=new checkPossibility([2,3,3,2,4]);
+</script>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number} x
+ * @return {number}
+ */
+var mySqrt = function(x) {
+			if(x==0){
+				console.log(0);
+				return 0;
+			};
+			if(x==1||x==2||x==3){
+				console.log(1);
+				return 1;
+			};
+    		var min=-1;
+    		var sum;
+    		var k;
+    		for(var i=2;i<=x;i++){
+    			sum=i*i;
+    			if(sum<=x){
+	    			if(min==-1||x-sum<min){
+	    				min=x-sum;
+	    				k=i;
+	    			};
+    			}else{
+    				break;
+    			};
+    		};
+    		return k;
+		};
+</script>
+</html>

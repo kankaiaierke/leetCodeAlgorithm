@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+var findPairs = function(nums, k) {
+    nums=nums.sort(aAronDie);
+    var count=0;
+    if(k==0){
+    	nums.push('end');
+    	var str=nums.join(',');
+    	for(var g=0;g<nums.length;g++){
+    		while(str.indexOf(nums[g]+','+nums[g]+','+nums[g]+',')>=0){
+    			str=str.replace(nums[g]+','+nums[g]+','+nums[g]+',',nums[g]+','+nums[g]+',');
+    		};
+    	};
+    	str=str.replace(',end','');
+    	nums=str.split(',');
+    	for(var g=0;g<nums.length-1;g++){
+	    	if(nums[g]==nums[g+1]){
+	    		count++;
+	    	};
+	    };
+    }else{
+    	for(var g=0;g<nums.length-1;){
+	    	if(nums[g]==nums[g+1]){
+	    		nums.splice(g,1);
+	    	}else{
+	    		g++;
+	    	};
+	    };
+	    for(var i=0;i<nums.length;i++){
+	    	for(var j=i+1;j<nums.length;j++){
+	    		if(nums[i]-nums[j]==k){
+	    			count++;
+	    		};
+	    	};
+	    };
+    }
+    console.log(count);
+    return count;
+};
+function aAronDie(a,b){
+	return b-a;
+};
+var res=new findPairs([1,2,3,4,5],1);
+</script>
+</html>

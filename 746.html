@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+		 * @param {number[]} cost
+		 * @return {number}
+		 */
+		var minCostClimbingStairs = function(cost) {
+			var len=cost.length;
+			if(len==2) {
+				return Math.min(cost[0], cost[1]);
+			};
+			var dp=[];
+			dp[0]=0;
+			dp[1]=0;
+			for(var i=2;i<=len;i++) {
+				dp[i]=Math.min(dp[i-2]+cost[i-2],cost[i-1]+dp[i-1]);
+				console.log(dp);
+			};
+			console.log(dp[len]);
+		};
+		var res = new minCostClimbingStairs([10,15,2]);
+	</script>
+
+</html>

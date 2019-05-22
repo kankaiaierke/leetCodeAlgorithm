@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+function submit(x){
+	var arr=[];
+	for(var i=1;i<=x;i++){
+		arr.push(i);
+	};
+	var res=[];
+	for(var i=0;i<x/2;i++){
+		res.push(arr[i]);
+		res.push(arr[i+x/2]);
+	};
+	return res;
+}
+
+console.log(submit(12));
+console.log(submit(100));
+</script>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+	 /**
+ * @param {number[]} seats
+ * @return {number}
+ */
+var maxDistToClosest = function(seats) {
+    var max=0;
+    var len=0;
+    var start=-1;
+    var res;
+    for(var i in seats){
+    	if(seats[i]){
+    		if(start!=0){
+    			len=parseInt((len+1)/2);
+    		};
+    		if(len>max){
+    			max=len;
+    			res=parseInt((i-start)/2+start*1);
+    		};
+    		len=0;
+    		start=-1;
+    	}else{
+    		if(start<0){
+    			start=i;
+    		};
+    		len++;
+    	};
+    };
+    if(len>max){
+    	max=len;
+		res=seats.length-1;
+	};
+    console.log(max);
+    console.log(res);
+};
+res = new maxDistToClosest([0,0,1]);
+</script>
+
+</html>

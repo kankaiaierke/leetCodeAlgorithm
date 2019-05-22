@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number[]} nums
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
+var moveZeroes = function(nums) {
+	var j=nums.length-1;
+	var i=0;
+	while(i<j){
+		if(nums[i]==0){
+			nums.splice(i,1);
+			nums.push(0);
+			j--;
+		}else{
+			i++;
+		};
+	};
+	console.log(nums);
+};
+var res=new moveZeroes([0,0,0,3,12]);
+</script>
+</html>

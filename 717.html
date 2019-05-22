@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number[]} bits
+ * @return {boolean}
+ */
+var isOneBitCharacter = function(bits) {
+    if(bits.pop()==1){
+    	return false
+    }else{
+    	bits=bits.join('');
+    	while(bits.indexOf('11')>=0||bits.indexOf('10')>=0){
+    		bits=bits.replace('11','');
+    		bits=bits.replace('10','');
+    	};
+    	while(bits.indexOf('0')>=0){
+    		bits=bits.replace('0','');
+    	};
+    	return bits.length==0;
+    };
+};
+var res=new isOneBitCharacter([1,1,1,0]);
+</script>
+</html>

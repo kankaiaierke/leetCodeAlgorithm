@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+ * @param {string[]} emails
+ * @return {number}
+ */
+var numUniqueEmails = function(emails) {
+    var res=[];
+    for(var i=0;i<emails.length;i++){
+    	var email='';
+    	var first=emails[i].split('@')[0];
+    	while(first.indexOf(".")>=0){
+    		first=first.replace('.','');
+    	};
+    	email=first.split('+')[0]+'@'+emails[i].split('@')[1];
+    	if(res.indexOf(email)<0){
+    		res.push(email);
+    	};
+    };
+    console.log(res);
+    return res.length;
+};
+Array.prototype.indexOf = function(val) { 
+for (var i = 0; i < this.length; i++) { 
+if (this[i] == val) return i; 
+} 
+return -1; 
+};
+		res = new numUniqueEmails(["test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","testemail+david@lee.tcode.com"]);
+	</script>
+
+</html>

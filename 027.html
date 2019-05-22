@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number[]} nums
+ * @param {number} val
+ * @return {number}
+ */
+var removeElement = function(nums,val) {
+			if (nums == null || nums.length == 0) {  
+                return 0;  
+        	};
+             while(nums[0]==val){
+        		nums.shift();
+        	};
+        	var size=1;
+        	for (var i = 1; i < nums.length; i++) {  
+	            if(nums[i]!=val) {
+	                nums[size] = nums[i];
+	            	size++;
+	            };  
+	        };
+	        console.log(nums);
+	        return size;  
+		};
+</script>
+</html>

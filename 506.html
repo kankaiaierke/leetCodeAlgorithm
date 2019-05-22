@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number[]} nums
+ * @return {string[]}
+ */
+var findRelativeRanks = function(nums) {
+	var arr=[];
+	for(var i=0;i<nums.length;i++){
+		arr.push(nums[i]);
+	};
+	arr=arr.sort(aAronDie);
+	console.log(nums);
+	console.log(arr);
+	for(var i=0;i<nums.length;i++){
+		var index=getIndex(arr,nums[i])*1+1;
+		if(index==1){
+			nums[i]="Gold Medal"
+		}else if(index==2){
+			nums[i]="Silver Medal";
+		}else if(index==3){
+			nums[i]="Bronze Medal";
+		}else{
+			nums[i]=index.toString();
+		};
+	};
+    console.log(nums);
+};
+function aAronDie(a,b){
+	return b-a;
+};
+function getIndex(arr,n){
+	for(var i in arr){
+		if(arr[i]==n){
+			return i;
+		}
+	};
+	return -1;
+};
+var res=new findRelativeRanks([10,3,8,9,4]);
+</script>
+</html>

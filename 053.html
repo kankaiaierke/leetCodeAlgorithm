@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var maxSubArray = function(nums) {
+			var max=nums.min();
+			var sum=[];
+			for(var i=0;i<nums.length;i++){
+				sum=[];
+				sum.push(nums[i]);
+				for(var j=0;j<nums.length-i-1;j++){
+					sum.push(sum[j]+nums[j+i+1]);
+				};
+				if(sum.max()>max){
+					max=sum.max();
+				};
+			};
+			console.log(max);
+			return max;
+		};
+		//最小值
+		Array.prototype.min = function() {
+			var min = this[0];
+			var len = this.length;
+			for (var i = 1; i < len; i++){ 
+				if (this[i] < min){ 
+					min = this[i]; 
+				}; 
+			};
+			return min;
+		};
+		//最大值
+		Array.prototype.max = function() { 
+			var max = this[0];
+			var len = this.length; 
+			for (var i = 1; i < len; i++){ 
+				if (this[i] > max) { 
+					max = this[i]; 
+				} 
+			} 
+			return max;
+		};
+</script>
+</html>

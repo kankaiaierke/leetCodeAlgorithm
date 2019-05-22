@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number} x
+ * @return {boolean}
+ */
+var isPalindrome = function(x) {
+		    if(x<0){
+		        return false;
+		    }else{
+		    	x=x.toString().split('');
+		    	var y=[];
+		    	var k=1;
+		    	var mid=parseInt(x.length/2);
+		    	var b=[];
+		    	if(x.length%2==0){
+		    		mid--;
+		    	}
+		    	b.push(x[mid]);
+		    	console.log(mid);
+		    	if(x.length==2){
+		    		if(x[0]==x[1]){
+		    			console.log(true);
+		    			return true;
+		    		};
+		    	};
+		    	if(x.length%2==0){
+		    		b.push(x[mid]);
+		    		while(x[mid-k]==x[mid+k+1]&&mid-k>=0&&mid+k<x.length){
+	    				b.unshift(x[mid-k]);
+    					b.push(x[mid+k+1]);
+	    				k++;
+	    			};
+	    			console.log(b);
+		    	}else{
+		    		
+		    		while(x[mid-k]==x[mid+k]&&mid-k>=0&&mid+k<x.length){
+	    				b.unshift(x[mid-k]);
+	    				b.push(x[mid+k]);
+	    				k++;
+	    			};
+		    	};
+		    	console.log(x.join('')==b.join(''));
+		    	return x.join('')==b.join('');
+		    };
+		};
+</script>
+</html>

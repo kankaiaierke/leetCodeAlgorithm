@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+	 /**
+ * @param {number[]} rec1
+ * @param {number[]} rec2
+ * @return {boolean}
+ */
+var isRectangleOverlap = function(rec1, rec2) {
+	var w1=rec1[2]-rec1[0];
+  	var w2=rec2[2]-rec2[0];
+  	var h1=rec1[3]-rec1[1];
+  	var h2=rec2[3]-rec2[1];
+  	var c1=[w1/2+rec1[0],h1/2+rec1[1]];
+  	var c2=[w2/2+rec2[0],h2/2+rec2[1]];
+  	var x0=Math.abs(c1[0]-c2[0]);
+  	var y0=Math.abs(c1[1]-c2[1]);
+  	console.log([w1,w2,x0]);
+  	console.log([h1,h2,y0]);
+  	console.log(x0<(w1+w2)/2&&y0<(h1+h2)/2);
+};
+res = new isRectangleOverlap([7,8,13,15],[10,8,12,20]);
+	</script>
+
+</html>

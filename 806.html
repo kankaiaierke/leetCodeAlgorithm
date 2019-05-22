@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+	 /**
+ * @param {number[]} widths
+ * @param {string} S
+ * @return {number[]}
+ */
+var numberOfLines = function(widths, S) {
+	var sum=0;
+	var page=0;
+    for(var i=0;i<S.length;i++){
+    	var num=widths[S[i].charCodeAt()-97];
+    	if(sum+num>100){
+    		page++;
+    		sum=num;
+    	}else{
+    		sum+=num;
+    	};
+    };
+    if(sum>0){
+    	page++;
+    };
+    console.log([page,sum]);
+    return [page,sum];
+};
+res = new numberOfLines( [4,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10],"bbbcccdddaaa");
+	</script>
+
+</html>

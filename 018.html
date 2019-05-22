@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+		 * @param {number[]} nums
+		 * @param {number} target
+		 * @return {number[][]}
+		 */
+		var fourSum = function(nums, target) {
+			nums=nums.sort(numSort);
+			if(nums.length<4){return []};
+			var res=[];
+			for(var z = 0; z < nums.length; z++) {
+				if(z > 0 && nums[z] == nums[z - 1]){
+					continue;
+				}
+				var newTarget = target - nums[z]; // 将四数之和转化为3数
+				for(var k = z + 1; k < nums.length; k++){ // 三数变成两数
+					if(k > z + 1 && nums[k] == nums[k - 1]){
+						continue;
+					};
+					var newTarget2 = newTarget - nums[k];
+					var i = k + 1, j = nums.length - 1;
+					while(i < j) { // 两数之和直接套用《两数之和2》的题
+						if(nums[i] + nums[j] == newTarget2){
+							res.push([
+								nums[z],
+								nums[k],
+								nums[i],
+								nums[j]
+							]);
+							while(i < j && nums[i] == nums[i + 1]){
+								i++; 
+							}//注意去重
+							while(i < j && nums[j] == nums[j - 1]){
+								j--;
+							}
+							i++;
+							j--;
+						} else if(nums[i] + nums[j] < newTarget2){
+							i++;
+						}else{
+							j--;
+						}
+					}
+				}
+			};
+			console.log(res);
+			return res;
+		};
+		function numSort(a, b) {
+			return a - b;
+		};
+		res = new fourSum([1, 0, -1, 0, -2, 2], 0);
+	</script>
+
+</html>

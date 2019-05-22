@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLongestSubstring = function(s) {
+			s=s.split("");
+    		var r='';
+    		var l=1;
+    		var str='';
+            if(s==""){return 0;}
+    		for(var i=0;i<s.length-1;i++){
+    			r=s[i];
+    			for(var j=i+1;j<s.length;j++){   				
+    				if(r.indexOf(s[j])<0){
+    					r+=s[j];
+    				}else{
+    					break;
+    				};
+    				if(r.length>l){
+    					l=r.length;
+    					str=r;
+    				};
+    			};
+    		};
+    		this.length=l;
+    		return this.length;
+		};
+</script>
+</html>

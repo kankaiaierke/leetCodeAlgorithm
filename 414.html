@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var thirdMax = function(nums) {
+    nums=nums.sort(aAronDie);
+    for(var i=0;i<nums.length-1;){
+    	if(nums[i]==nums[i+1]){
+    		nums.splice(i, 1);
+    	}else{
+    		i++;
+    	}
+    };
+    if(nums.length>2){	
+    	console.log(nums[nums.length-3]);
+    	return(nums[nums.length-3]);
+    }else{
+    	console.log(nums[nums.length-1]);
+    	return(nums[nums.length-1]);
+    };
+};
+function aAronDie(a,b){
+	return a-b;
+};
+var res=new thirdMax([ 2, 1,2]);
+</script>
+</html>

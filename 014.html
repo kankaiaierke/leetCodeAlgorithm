@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {string[]} strs
+ * @return {string}
+ */
+var longestCommonPrefix = function(strs) {
+			var prefix="";
+			var maxLength=0;
+			for(var i in strs){
+				strs[i]=strs[i].split('');
+				if(maxLength<strs[i].length){
+					maxLength=strs[i].length;
+				};
+			};
+			for(var i=0;i<maxLength;i++){
+				var addIf=true;
+				for(var j=1;j<strs.length;j++){
+					if(strs[j][i]!=strs[0][i]){
+						addIf=false;
+					};
+				};
+				if(addIf){
+					prefix+=strs[0][i];
+				}else{
+					console.log(prefix);
+					return prefix;
+				};
+			};
+            return prefix;
+		};
+</script>
+</html>

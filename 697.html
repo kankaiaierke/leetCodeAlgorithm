@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findShortestSubArray = function(nums) {
+    var obj={};
+	var min,max;
+	for(var i in nums){
+		if(nums[i] in obj){
+			obj[nums[i]].count++;
+			obj[nums[i]].end=i*1;
+			obj[nums[i]].len=obj[nums[i]].end-obj[nums[i]].start+1;
+		}else{
+			obj[nums[i]]={count:1,start:i*1,end:i*1};
+			obj[nums[i]].len=obj[nums[i]].end-obj[nums[i]].start+1;
+		};
+		if(!max||max<obj[nums[i]].count){
+			max=obj[nums[i]].count;
+		};
+	};
+	for(var key in obj){
+		if((!min||min>obj[key].len)&&max==obj[key].count){
+			min=obj[key].len;
+		};
+	};
+	return min;
+};
+var res=new findShortestSubArray([1,2,2,3,1,4,2]);
+</script>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {character[]} chars
+ * @return {number}
+ */
+var compress = function(chars) {
+    var count=0;
+    var arr=[];
+    if(chars.length>0){
+    	var str=chars[0];
+    	for(var i=0;i<chars.length;){
+    		if(str==chars[i]){
+    			count++;
+    			if(count>1){
+    				chars.splice(i,1);
+    			}else{
+    				i++;
+    			};
+    		}else{
+    			str=chars[i];
+    			if(count>1){
+    				arr=count.toString();
+    				for(var j=0;j<arr.length;j++){
+    					chars.splice(i+j,0,arr.substr(j,j+1));
+    				};
+    			};
+    			count=1;
+    			i+=arr.length+1;
+    			arr=[];
+    		};
+    	};
+    	if(count>1){
+    		if(chars[chars.length-2]==chars[chars.length-1]){
+    			count++;
+    			chars.splice(chars.length-1,1);
+    		};
+    		arr=count.toString();
+			for(var j=0;j<arr.length;j++){
+				chars.splice(chars.length+j,0,arr.substr(j,j+1));
+			};
+		};
+    };
+    console.log(chars);
+    return chars.length;
+};
+var res=new compress(["a","b","c","d","d","e","e","e","e","e","a","b","c","c","c","c","c","d"]);
+</script>
+</html>

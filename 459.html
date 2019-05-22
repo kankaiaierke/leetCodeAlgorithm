@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var repeatedSubstringPattern = function(s) {
+    for(var i=0;i<=s.length/2-1;i++){
+    	if(aAronDie(s,s.slice(0,i+1))){
+    		console.log(true);
+    		return true;
+    	};
+    };
+    console.log(false);
+    return false;
+};
+function aAronDie(arr,str){
+	while(arr.indexOf(str)>=0){
+		arr=arr.replace(str,'');
+	};
+	return arr.length==0;
+};
+var res=new repeatedSubstringPattern("abcabcabcabc");
+</script>
+</html>

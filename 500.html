@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {string[]} words
+ * @return {string[]}
+ */
+var findWords = function(words) {
+    for(var i=0;i<words.length;){
+    	var res=0;
+    	for(var j=0;j<words[i].length;j++){
+    		if(!res){
+    			res=aAronDie(words[i][j]);
+    		}
+    		if(res!=aAronDie(words[i][j])){
+    			res=0;
+    			break;
+    		};
+    	};
+    	if(!res){
+			words.splice(i,1);
+		}else{
+			i++;
+		};
+    };
+    console.log(words);
+    return words;
+};
+function aAronDie(s){
+	s=s.toLowerCase();
+	if(s.charCodeAt()==122||s.charCodeAt()==120||s.charCodeAt()==99||s.charCodeAt()==118||s.charCodeAt()==98||s.charCodeAt()==110||s.charCodeAt()==109){
+		return 1;
+	}else if(s.charCodeAt()==97||s.charCodeAt()==115||s.charCodeAt()==100||s.charCodeAt()==102||s.charCodeAt()==103||s.charCodeAt()==104||s.charCodeAt()==106||s.charCodeAt()==107||s.charCodeAt()==108){
+		return 2;
+	}else{
+		return 3;
+	};
+};
+var res=new findWords(["asdfghjkl","qwertyuiop","zxcvbnm"]);
+</script>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var romanToInt = function(s) {
+    		var str;
+    		s=s.split('');
+    		var sum=0;
+    		for(i in s){
+    			switch(s[i]){
+    				case 'M':
+					  s[i]=1000;
+					  break;
+					case 'D':
+					  s[i]=500;
+					  break;
+					  case 'C':
+					  s[i]=100;
+					  break;
+					  case 'L':
+					  s[i]=50;
+					  break;
+					  case 'X':
+					  s[i]=10;
+					  break;
+					   case 'V':
+					  s[i]=5;
+					  break;
+					   case 'I':
+					  s[i]=1;
+					  break;
+					default:
+    			};
+    		};
+    		console.log(s);
+    		for(var i=0;i<s.length;i++){
+    			var addIf=true;
+    			for(var j=i+1;j<s.length;j++){
+    				if(s[i]<s[j]){
+    					addIf=false;
+    				};
+    			};
+    			console.log(addIf);
+    			if(addIf){
+					sum+=s[i];
+				}else{
+					sum-=s[i];
+				};
+    		};
+    		console.log(sum);
+    		return sum;
+		};
+</script>
+</html>

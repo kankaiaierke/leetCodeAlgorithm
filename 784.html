@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+	/**
+ * @param {string} S
+ * @return {string[]}
+ */
+var letterCasePermutation = function(S) {
+    var reg= /^[A-Za-z]+$/;
+    S=S.toLowerCase();
+    var res=[S];
+    var count=0;
+    for(var i in S){
+    	if(reg.test(S[i])){
+    		count++;
+    	};
+    };
+    var arr=['0'];
+    var num=1;
+    for(var i=0;i<count;i++){
+    	num*=2;
+    };
+    console.log(num);
+    for(var i=1;i<num;i++){
+    	var str=i.toString(2);
+    	arr.push(str);
+    };
+    for(var i in arr){
+    	while(arr[i].length<count){
+    		arr[i]='0'+arr[i];
+    	};
+    	arr[i]=arr[i].split('');
+    };
+    console.log(arr);
+    for(var i=0;i<arr.length;i++){
+    	var str=S.split('');
+    	var len=0;
+    	for(var k in S){
+    		if(reg.test(S[k])){
+    			if(arr[i][len]=='1'){
+    				str.splice(k,1,S[k].toLocaleUpperCase());
+    			};
+    			len++;
+    			if(len>=count){
+    				break;
+    			};
+    		};
+    	};
+    	if(!aAronDie(res,str.join(''))){
+    		res.push(str.join(''));
+    	};
+    	//console.log(arr[i]);
+    	//console.log(str);
+    };
+    console.log(res);
+    res=res.sort().reverse();
+    return res;
+};
+function aAronDie(arr,str){
+	for(var i in arr){
+		if(arr[i]==str){
+			return true;
+		};
+	};
+	return false;
+};
+res = new letterCasePermutation("mQe");
+	</script>
+
+</html>

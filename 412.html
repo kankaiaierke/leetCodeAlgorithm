@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number} n
+ * @return {string[]}
+ */
+var fizzBuzz = function(n) {
+	var arr=[];
+	for(var i=0;i<n;i++){
+		arr[i]="";
+		var res=i+1
+		if(res%3==0){
+			arr[i]+="Fizz";
+		};
+		if(res%5==0){
+			arr[i]+="Buzz";
+		};
+		if(arr[i]==""){
+			arr[i]+=res;
+		};
+	};
+	return arr;
+};
+var res=new fizzBuzz(15);
+</script>
+</html>

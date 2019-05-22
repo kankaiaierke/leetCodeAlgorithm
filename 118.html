@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number} numRows
+ * @return {number[][]}
+ */
+var generate = function(numRows) {
+	var res=[];
+	if(numRows<1){
+		return [];
+	};
+	res.push([1]);
+	if(numRows>1){
+		res.push([1,1]);
+	};
+	for(var i=1;i<numRows-1;i++){
+		var arr=[];
+		arr.push(res[i][0]);
+		for(var j=0;j<res[i].length-1;j++){
+			arr.push(parseInt(res[i][j])+parseInt(res[i][j+1]));
+		};
+		arr.push(res[i][res[i].length-1]);
+		res.push(arr);
+	};
+	console.log(res);
+	return res;
+};
+var aAronDie=new generate(11);
+</script>
+</html>

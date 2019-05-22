@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number[][]} grid
+ * @return {number}
+ */
+var islandPerimeter = function(grid) {
+	var res=0;
+	for(var i=0;i<grid.length;i++){
+		for(j=0;j<grid[i].length;j++){
+			if(grid[i][j]==1){
+				res+=4;
+				if(i>0&&grid[i-1][j]==1){
+					res--;
+				};
+				if(i<grid.length-1&&grid[i+1][j]==1){
+					res--;
+				};
+				if(j>0&&grid[i][j-1]==1){
+					res--;
+				};
+				if(j<grid[i].length&&grid[i][j+1]==1){
+					res--;
+				};
+			};
+		};
+	};
+	console.log(res);
+	return res;
+};
+var res=new islandPerimeter([[1,1]]);
+</script>
+</html>

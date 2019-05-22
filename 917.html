@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+ * @param {string} S
+ * @return {string}
+ */
+var reverseOnlyLetters = function(S) {
+	S=S.split("");
+	var arr=[];
+    for(var i=0;i<S.length;){
+    	if((S[i]>='a'&&S[i]<='z')||(S[i]>='A'&&S[i]<='Z')){
+    		i++;
+    	}else{
+    		arr.push({
+    			index:i+arr.length,
+    			data:S[i]
+    		});
+    		S.splice(i,1);
+    	};
+    };
+    S=S.reverse();
+    for(var i=0;i<arr.length;i++){
+    	S.splice(arr[i].index,0,arr[i].data);
+    };
+    S=S.join("");
+    console.log(S);
+};
+		res = new reverseOnlyLetters("a-bC-dEf-ghIj");
+	</script>
+
+</html>

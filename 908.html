@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+		 * @param {number[]} A
+		 * @param {number} K
+		 * @return {number}
+		 */
+		var smallestRangeI = function(A, K) {
+			var min=A.min();
+			var max=A.max();
+			var diff=max-min;
+			console.log(Math.abs(K * 2) >= diff ? 0 : diff - Math.abs(K * 2));
+			return Math.abs(K * 2) >= diff ? 0 : diff - Math.abs(K * 2);
+		};
+		//最小值
+		Array.prototype.min = function() {
+			var min = this[0];
+			var len = this.length;
+			for(var i = 1; i < len; i++) {
+				if(this[i] < min) {
+					min = this[i];
+				}
+			}
+			return min;
+		}
+		//最大值
+		Array.prototype.max = function() {
+			var max = this[0];
+			var len = this.length;
+			for(var i = 1; i < len; i++) {
+				if(this[i] > max) {
+					max = this[i];
+				}
+			}
+			return max;
+		}
+		res = new smallestRangeI([1], 0);
+	</script>
+
+</html>

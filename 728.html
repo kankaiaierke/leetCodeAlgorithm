@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number} left
+ * @param {number} right
+ * @return {number[]}
+ */
+var selfDividingNumbers = function(left, right) {
+	var res=[];
+    for(var i=left;i<=right;i++){
+    	if(aAronDie(i)){
+    		res.push(i);
+    	};
+    };
+    console.log(res);
+    return res;
+};
+function aAronDie(num){
+	var arr=num.toString().split('');
+	for(var i in arr){
+		if(num%(arr[i]*1)!=0){
+			return false;
+		};
+	};
+	return true;
+};
+var res=new selfDividingNumbers(1,22);
+</script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+	 /**
+ * @param {number[][]} points
+ * @return {number}
+ */
+var largestTriangleArea = function(points) {
+ 	var res = -1;
+    for(var m in points){
+    	for(var n in points){
+        	for(var p in points){
+                var tmpArea = 0.5 * Math.abs(points[m][0]*points[n][1] + points[n][0]*points[p][1] + points[p][0]*points[m][1] - points[m][0]*points[p][1] - points[n][0]*points[m][1] - points[p][0]*points[n][1]);
+                res = Math.max(res, tmpArea);
+            };
+        };
+    };
+    console.log(res);
+    return res;
+};
+res = new largestTriangleArea([[37,48],[44,48],[-35,36],[-48,-31],[4,-49],[25,11],[31,-13],[-4,32],[2,-3],[-10,2],[33,-22],[-42,8],[-28,-19],[-28,19],[-8,-10],[-13,37],[-16,-49],[25,38],[42,-9],[35,48],[49,47],[-5,-39],[-5,-28],[-30,32],[47,24]]);
+	</script>
+
+</html>

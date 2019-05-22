@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number[][]} nums
+ * @param {number} r
+ * @param {number} c
+ * @return {number[][]}
+ */
+var matrixReshape = function(nums, r, c) {
+	var arr=[];
+	for(var i=0;i<nums.length;i++){
+		 arr = arr.concat(nums[i]);
+	};
+    if(arr.length==r*c){
+    	nums=[];
+    	for(var i=0;i<r;r--){
+    		nums.push(arr.splice(i,c));
+    	};
+    };
+    console.log(nums);
+    return nums;
+};
+var res=new matrixReshape([[1,2],[3,4]],1,4);
+</script>
+</html>

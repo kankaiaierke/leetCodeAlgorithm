@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var minMoves = function(nums) {
+    var min=Math.min.apply(null,nums);
+    var sum=getSum(nums);
+    var len=nums.length;
+    return sum-min*len;
+};
+function getSum(arr){
+	var sum=0;
+	for(var i in arr){
+		sum+=arr[i];
+	};
+	return sum;
+};
+var res=new minMoves([1,1,2,2,3]);
+</script>
+</html>

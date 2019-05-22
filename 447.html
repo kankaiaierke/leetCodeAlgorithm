@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number[][]} points
+ * @return {number}
+ */
+var numberOfBoomerangs = function(points) {
+	var count=0;
+	var obj={};
+	var sum=0;
+    //console.log(pointLength(points[0],points[1]));
+    for(var i=0;i<points.length;i++){
+    	for(var j=0;j<points.length;j++){
+    		if(i!=j){
+    			var len=pointLength(points[i],points[j]).toString();
+    			if(len in obj){
+    				obj[len]++;
+    			}else{
+    				obj[len]=1;
+    			};
+    		};
+    	};
+    	for(k in obj){
+    		sum+=aAronDie(obj[k]);
+    	}
+    	obj={};
+    };
+    console.log(sum);
+};
+function pointLength(p1,p2){
+	return Math.sqrt((p1[0]-p2[0])*(p1[0]-p2[0])+(p1[1]-p2[1])*(p1[1]-p2[1]));
+};
+function aAronDie(n){
+	var sum=0;
+	for(var i=0;i<n;i++){
+		sum+=i*2;
+	};
+	return sum;
+};
+var res=new numberOfBoomerangs([[0,0],[1,0],[2,0]]);
+</script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {string[]} ops
+ * @return {number}
+ */
+var calPoints = function(ops) {
+    var sum=0;
+    for(var i=0;i<ops.length;i++){
+    	if(ops[i]=='+'){
+    		ops[i]=ops[i-2]*1+ops[i-1]*1;
+    		sum+=ops[i];
+    	}else if(ops[i]=='D'){
+    		ops[i]=ops[i-1]*2;
+    		sum+=ops[i];
+    	}else if(ops[i]=='C'){
+    		sum-=ops[i-1]*1;
+    		ops.splice(i-1,2);
+    		i-=2;
+    	}else{
+    		sum+=ops[i]*1;
+    	};
+    	console.log(ops);
+    };
+    console.log(sum);
+};
+var res=new calPoints(["5","-2","4","C","D","9","+","+"]);
+</script>
+</html>

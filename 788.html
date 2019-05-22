@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+	/**
+ * @param {number} N
+ * @return {number}
+ */
+var rotatedDigits = function(N) {
+	var count=0;
+    for(var i=1;i<=N;i++){
+    	if(aAronDie(i)){
+    		count++;
+    	};
+    };
+    console.log(count);
+    return count;
+};
+function aAronDie(n){
+	str=n.toString().split('');
+	for(var i in str){
+		if(str[i]==0||str[i]==1||str[i]==8){
+			str[i]=str[i];
+		}else if(str[i]==2){
+			str[i]='5';
+		}else if(str[i]==5){
+			str[i]='2';
+		}else if(str[i]==6){
+			str[i]='9';
+		}else if(str[i]==9){
+			str[i]='6';
+		}else{
+			return false;
+		};
+	};
+	str=parseInt(str.join(''));
+	return str!=n;
+};
+res = new rotatedDigits(10);
+	</script>
+
+</html>

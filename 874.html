@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+	  /**
+ * @param {number[]} commands
+ * @param {number[][]} obstacles
+ * @return {number}
+ */
+/*var robotSim = function(commands, obstacles) {
+    var direction=1;
+    var x=0,y=0;
+    var aim=[1,1];
+    var max=0;
+    for(var i=0;i<commands.length;i++){
+    	if(commands[i]==-1){
+    		if(direction==4){
+    			direction=1;
+    		}else{
+    			direction++;
+    		}
+    	}else if(commands[i]==-2){
+    		if(direction==1){
+    			direction=4;
+    		}else{
+    			direction--;
+    		}
+    	}else{
+    		if(direction==2){
+    			aim=[0,1];	
+			}else if(direction==3){
+				aim=[1,-1];
+			}else if(direction==4){
+				aim=[0,-1];
+			}else{
+				aim=[1,1];
+			};
+    		for(var j=0;j<commands[i];j++){
+    			if(aim[0]==0){
+    				var x1=x+aim[1];
+    				var y1=y;
+    			}else{
+    				var x1=x;
+    				var y1=y+aim[1];
+    			};
+    			if(has(obstacles,[x1,y1])){
+    				break;
+    			}else{
+    				x=x1;
+    				y=y1;
+    			};
+    		};
+    		if(x*x+y*y>max){
+    			max=x*x+y*y;
+    		}
+    	};
+    };
+    console.log(max);
+    return max;
+};
+function equal(arr1,arr2){
+	for(var i in arr1){
+		if(arr1[i]!=arr2[i]){
+			return false;
+		};
+	};
+	return true;
+};
+function has(arr1,arr2){
+	for(var i in arr1){
+		if(equal(arr1[i],arr2)){
+			return true;
+		};
+	};
+	return false;
+};*/
+var robotSim = function(commands, obstacles) {
+	var dx = [0, 1, 0, -1];
+    var dy = [1, 0, -1, 0];
+    var x = 0, y = 0, di = 0;
+
+    var obstacleSet=[];
+    /*for (vector<int> obstacle: obstacles)
+        obstacleSet.insert(make_pair(obstacle[0], obstacle[1]));*/
+	obstacles.forEach(function(obstacle,i){
+		obstacleSet.push(obstacle[0]+'@'+obstacle[1]);
+	});
+    var ans = 0;
+    commands.forEach(function(cmd,i){
+        if (cmd == -2){
+        	di = (di + 3) % 4;
+        }else if (cmd == -1){
+            di = (di + 1) % 4;	
+        }else {
+            for (var k = 0; k < cmd; k++) {
+                var nx = x + dx[di];
+                var ny = y + dy[di];
+                if (obstacleSet.indexOf(nx+'@'+ny)<0) {
+                    x = nx;
+                    y = ny;
+                    ans = Math.max(ans, x*x + y*y);
+                };
+            };
+        };
+    });
+    console.log(ans);
+    return ans;
+};
+Array.prototype.indexOf = function(val) { 
+for (var i = 0; i < this.length; i++) { 
+if (this[i] == val) return i; 
+} 
+return -1; 
+};
+res = new robotSim([4,-1,4,-2,4],[[2,4]]);
+</script>
+
+</html>

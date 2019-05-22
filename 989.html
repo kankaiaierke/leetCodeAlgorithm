@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+		 * @param {number[]} A
+		 * @param {number} K
+		 * @return {number[]}
+		 */
+		var addToArrayForm = function(A, K) {
+		    var sum=0;
+		    A=A.reverse();
+		    K=(K+'').split('').reverse();
+		    var res=0;
+		    if(A.length<K.length){
+		    	for(var i=A.length;i<K.length;i++){
+		    		A[i]=0;
+		    	};
+		    };
+		    for(var i=0;i<A.length;i++){
+		    	if(K[i]){
+		    		A[i]+=K[i]*1;
+		    		if(res==1){
+			    		A[i]+=1;
+			    		res=0;
+			    	};
+			    	if(A[i]>9){
+			    		A[i]-=10;
+			    		res=1;
+			    	};
+		    	}else{
+		    		if(res==1){
+			    		A[i]+=1;
+			    		res=0;
+			    	};
+			    	if(A[i]>9){
+			    		A[i]-=10;
+			    		res=1;
+			    	};
+		    	};
+		    };
+		    if(res==1){
+	    		A.push(1);
+	    		res=0;
+	    	};
+		    return A.reverse();
+		};
+		res = new addToArrayForm([0],34);
+	</script>
+
+</html>

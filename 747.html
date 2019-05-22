@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+		 * @param {number[]} nums
+		 * @return {number}
+		 */
+		var dominantIndex = function(nums) {
+			var first=aArenDie(nums);
+			nums.splice(first.index,1);
+			var second=aArenDie(nums);
+			if(first.value>=second.value*2){
+				console.log(first.index);
+				return first.index;
+			}else{
+				return -1;
+			};
+		};
+		function aArenDie(arr){
+			var max=0;
+			for(var i in arr){
+				if(max<arr[i]){
+					max=arr[i];
+					index=i;
+				};
+			};
+			return {'index':index,'value':max};
+		};
+		var res = new dominantIndex([1,2,3,4]);
+	</script>
+
+</html>

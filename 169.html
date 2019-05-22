@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var majorityElement = function(nums) {
+	nums=nums.sort(aAronDie);
+	var len=parseInt(nums.length/2);
+	var count=1;
+	var res=nums[0];
+	for(var i=1;i<nums.length;i++){
+		if(res!=nums[i]){
+			if(count>len){
+				console.log(res);
+				return res;
+			};
+			res=nums[i];
+			count=1;
+		}else{
+			count++;
+		};
+	};
+	if(count>len){
+		console.log(res);
+		return res;
+	};
+};
+function aAronDie(a,b){
+	return a-b;
+};
+var aAronDie=new majorityElement([2,2,1,1,1,2,2]);
+</script>
+</html>

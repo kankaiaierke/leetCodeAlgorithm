@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {string} moves
+ * @return {boolean}
+ */
+var judgeCircle = function(moves) {
+	var x=0,y=0;
+	for(var i=0;i<moves.length;i++){
+		if(moves[i]=='U'){
+			y++;
+		}else if(moves[i]=='D'){
+			y--;
+		}else if(moves[i]=='L'){
+			x--;
+		}else if(moves[i]=='R'){
+			x++;
+		};
+	};
+	console.log(x==0&&y==0);
+	return x==0&&y==0;
+};
+var res=new judgeCircle("UDRL");
+</script>
+</html>

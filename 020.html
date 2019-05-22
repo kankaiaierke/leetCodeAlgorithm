@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isValid = function(s) {	
+			s=removeArr(s);
+			if(s==''){
+				console.log(true);
+				return true;
+			}else{
+				console.log(false);
+				return false;
+			};
+		};
+		function removeArr(str){
+			while(str.indexOf('()')>=0||str.indexOf('[]')>=0||str.indexOf('{}')>=0){
+				
+				str=removeLi(str,'()');
+				str=removeLi(str,'[]');
+				str=removeLi(str,'{}');
+			};
+			return str;
+		};
+		function removeLi(str,s){
+			str=str.split(s);
+			str=str.join('');
+			return str;
+		};
+</script>
+</html>

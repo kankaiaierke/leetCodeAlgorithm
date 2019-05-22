@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number} num
+ * @return {number}
+ */
+var addDigits = function(num) {
+	while(num>=10){
+		num=sum(num.toString().split(''));
+	};	
+	console.log(num);
+	return num;
+};
+function sum(arr){
+	var res=0;
+	for(var i=0;i<arr.length;i++){
+		res+=parseInt(arr[i]);
+	};
+	return res;
+};
+var res=new addDigits(38);
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number[]} candies
+ * @return {number}
+ */
+var distributeCandies = function(candies) {
+    var aAronDie={};
+    for(var i=0;i<candies.length;i++){
+    	if(candies[i] in aAronDie){
+    		aAronDie[candies[i]]++;
+    	}else{
+    		aAronDie[candies[i]]=1;
+    	};
+    };
+    var count1=0;
+    var count2=candies.length/2;
+    for(key in aAronDie){
+    	count1++;
+    };
+    console.log(Math.min(count1,count2));
+    return Math.min(count1,count2);
+    
+};
+var res=new distributeCandies([1,1,2,3]);
+</script>
+</html>

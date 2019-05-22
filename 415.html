@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {string} num1
+ * @param {string} num2
+ * @return {string}
+ */
+var addStrings = function(num1, num2) {
+	num1=num1.split('').reverse();
+	num2=num2.split('').reverse();
+	var len1=num1.length;
+	var len2=num2.length;
+	var len;
+	var arr=[];
+	var avg=0;
+	var sum;
+	if(len1<len2){
+		len=len1;
+	}else{
+		len=len2;
+	};
+	for(var i=0;i<len;i++){
+		sum=parseInt(num1[i])+parseInt(num2[i])+avg;
+		avg=0;
+		if(sum>=10){
+			avg=1;
+			sum-=10;
+		};
+		arr.unshift(sum);
+	};
+	for(var i=len;i<len1;i++){
+		sum=parseInt(num1[i])+avg;
+		avg=0;
+		if(sum>=10){
+			avg=1;
+			sum-=10;
+		};
+		arr.unshift(sum);
+	};
+	for(var i=len;i<len2;i++){
+		sum=parseInt(num2[i])+avg;
+		avg=0;
+		if(sum>=10){
+			avg=1;
+			sum-=10;
+		};
+		arr.unshift(sum);
+		};
+		if(avg==1){
+			arr.unshift(avg);
+		};
+	arr=arr.join('');
+    console.log(arr);
+    return arr;
+};
+var res=new addStrings('99','99');
+</script>
+</html>

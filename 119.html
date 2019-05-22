@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number} rowIndex
+ * @return {number[]}
+ */
+var getRow = function(rowIndex) {
+	var res=[];
+	if(rowIndex<1){
+		return [];
+	};
+	res.push([1]);
+	if(rowIndex>1){
+		res.push([1,1]);
+	};
+	for(var i=1;i<rowIndex-1;i++){
+		var arr=[];
+		arr.push(res[i][0]);
+		for(var j=0;j<res[i].length-1;j++){
+			arr.push(parseInt(res[i][j])+parseInt(res[i][j+1]));
+		};
+		arr.push(res[i][res[i].length-1]);
+		res.push(arr);
+	};
+	console.log(res[rowIndex-1]);
+	return res[rowIndex-1];
+};
+var aAronDie=new getRow(4);
+</script>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {string[]} words
+ * @return {string}
+ */
+var longestWord = function(words) {
+    words=words.sort();
+    var max=0;
+    console.log(words);
+    for(var i=0;i<words.length;){
+    	var len=1;
+    	if(words[i].lenght>len){
+    		len=words[i].lenght-1;
+    	};
+    	var res=words[i];
+    	var str="";
+    	for(var j=0;j<res.length-1;j++){
+    		str+=res[j];
+    	};
+    	if(str==''||hasArr(words,str)){
+    		i++;
+    	}else{
+    		words.splice(i,1);
+    	};
+    };
+    console.log(words);
+    for(var i=1;i<words.length;){
+     	if(words[i].length-words[i-1].length>1){
+			words.splice(i,1);
+     	}else{
+     		i++;
+     	};
+     };
+     console.log(words);
+     for(var i=0;i<words.length;i++){
+     	if(words[i]&&words[i].length>max){
+			max=words[i].length;
+		};
+     };
+     for(var i=0;i<words.length;){
+     	if(words[i]&&max>words[i].length){
+     		words.splice(i,1);
+     	}else{
+     		i++;
+     	};
+     };
+    console.log(words);
+    return words[0];
+};
+function hasArr(arr,n){
+	for(var i in arr){
+		if(arr[i]==n){
+			return true;
+		};
+	};
+	return false;
+};
+var res=new longestWord(["a","banana","app","appl","ap","apply","apple"]);
+</script>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+	 /**
+ * @param {string} S
+ * @param {string} T
+ * @return {boolean}
+ */
+var backspaceCompare = function(S, T) {
+    console.log(aAronDie(S));
+    console.log(aAronDie(T));
+    return aAronDie(S)==aAronDie(T);
+};
+function aAronDie(S){
+	S=S.split('');
+	for(var i=0;i<S.length;){
+		if(S[i]=='#'){
+			if(i>0){
+				S.splice(i-1,2);
+				i--;
+			}else{
+				S.splice(i,1);
+			};
+		}else{
+			i++;
+		};
+	};
+	return S.join('');
+};
+res = new backspaceCompare("y#fo##f","y#f#o##f");
+</script>
+
+</html>

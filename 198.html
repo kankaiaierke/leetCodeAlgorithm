@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var rob = function(nums) {
+	var a=0,b=0;
+	for(var i=0;i<nums.length;i++){
+		if(i%2==0){
+			 a=max(a+nums[i],b);
+		}else{
+			 b=max(a,b+nums[i]);
+		};
+		console.log([a, b]);
+	};
+	return max(a, b);
+};
+function max(a,b){
+	if(a>b){
+		return a;
+	}else{
+		return b;
+	}
+};
+var aAronDie=new rob([2,1,1,2]);
+</script>
+</html>

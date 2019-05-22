@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {character}
+ */
+var findTheDifference = function(s, t) {
+    s=s.split("");
+	t=t.split("");
+	for(var i=0;i<t.length;){
+		var index=aAronDie(s,t[i]);
+		if(index>=0){
+			s.splice(index,1);
+			t.splice(i,1);
+		}else{
+			console.log(t[i]);
+			return t[i];
+		};
+	};
+	console.log(t[0]);
+	return t[0];
+};
+function aAronDie(arr,obj){
+	for(var i=0;i<arr.length;i++){
+		if(arr[i]==obj){
+			return i;
+		};
+	};
+	return -1;
+};
+var res=new findTheDifference("a","aa");
+</script>
+</html>

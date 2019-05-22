@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number} n
+ * @return {string}
+ */
+var countAndSay = function(n) {
+    		var res=1;
+    		for(var i=1;i<n;i++){
+    			res=AaronDie(res);
+    		};
+    		res=res.toString();
+    		return res;
+		};
+		function AaronDie(str){
+			str=str.toString().split('');
+			var AaronSonDie=str[0];
+			var count=0;
+			var res=[];
+			for(var i=0;i<str.length;i++){
+				if(str[i]!=AaronSonDie){
+					res.push(count);
+					res.push(AaronSonDie);
+					AaronSonDie=str[i];
+					count=0;
+				};
+				count++;
+			};
+			res.push(count);
+			res.push(AaronSonDie);
+            res=res.join('');
+			return res;
+		};
+</script>
+</html>

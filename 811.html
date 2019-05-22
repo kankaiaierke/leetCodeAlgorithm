@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+	 /**
+ * @param {string[]} cpdomains
+ * @return {string[]}
+ */
+var subdomainVisits = function(cpdomains) {
+	var obj={};
+	var res=[];
+    for(var i in cpdomains){
+    	cpdomains[i]=cpdomains[i].split(' ');
+    	cpdomains[i][1]=cpdomains[i][1].split('.');
+    	var str='';
+    	for(var j=cpdomains[i][1].length-1;j>=0;j--){
+    		if(j<cpdomains[i][1].length-1){
+    			str='.'+str;
+    		};
+    		str=cpdomains[i][1][j]+str;
+    		console.log(str);
+    		if(str in obj){
+    			obj[str]+=cpdomains[i][0]*1;
+    		}else{
+    			obj[str]=cpdomains[i][0]*1;
+    		};
+    	};
+    };
+    for(key in obj){
+    	res.push(obj[key]+' '+key);
+    };
+    console.log(res);
+    return res;
+};
+res = new subdomainVisits(["900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org"]);
+	</script>
+
+</html>

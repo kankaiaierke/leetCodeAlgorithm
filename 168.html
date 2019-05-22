@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number} n
+ * @return {string}
+ */
+var convertToTitle = function(n) {
+	var res=[];
+	var aAron=1;
+	var count=0;
+	var index;
+	while(aAron<n){
+		aAron*=26;
+		count++;
+	};
+	if(count>0){
+		count--;
+	};
+	if(aAron>1){
+		aAron/=26;
+	};
+	if(count<0){
+		count=0;
+	};
+	if(aAron<1){
+	};
+	for(var i=count;i>=0;i--){
+		index=parseInt(n/aAron);
+		console.log(index);
+		n-=aAron*index;
+		aAron/=26;
+		res.push(index);
+	};
+	for(var i=res.length-1;i>0;i--){
+		if(res[i]==0){
+			res[i]=26;
+			res[i-1]--;
+		};
+	};
+	for(var i=0;i<=res.length-1;i++){
+		if(res[i]!=0){
+			res[i]=String.fromCharCode(64+res[i]);
+		}else{
+			res[i]='';
+		};
+	};
+	res=res.join('');
+	console.log(res);
+	return res;
+};
+var aAronDie=new convertToTitle(701);
+</script>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+		 * @param {number[]} A
+		 * @param {number[]} B
+		 * @return {number[]}
+		 */
+		var fairCandySwap = function(A, B) {
+			var sumA=A.sum();
+			var sumB=B.sum();
+			for(var i=0;i<A.length;i++){
+				for(var j=0;j<B.length;j++){
+					if(sumA-A[i]+B[j]==sumB-B[j]+A[i]){
+						console.log([A[i],B[j]]);
+						return [A[i],B[j]];
+						break;
+					};
+				};
+			};
+		};
+		Array.prototype.sum = function() {
+			var sum=0;
+			for(var i =0; i < this.length; i++) {
+				sum+=this[i]*1;
+			}
+			return sum;
+		};
+		res = new fairCandySwap([1, 1], [2, 2]);
+	</script>
+
+</html>

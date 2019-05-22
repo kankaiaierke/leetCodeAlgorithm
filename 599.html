@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {string[]} list1
+ * @param {string[]} list2
+ * @return {string[]}
+ */
+var findRestaurant = function(list1, list2) {
+	var arr={};
+	var min=list1.length+list2.length;
+    for(var i in list1){
+    	for(var j in list2){
+    		if(list1[i]==list2[j]){
+    			var res=i*1+j*1;
+    			if(res in arr){
+    				arr[res].push(list1[i]);
+    			}else{
+    				arr[res]=[list1[i]];
+    			};
+    			if(res<min){
+    				min=res;
+    			};
+    		};
+    	};
+    };
+    console.log(arr);
+    return arr[min];
+};
+var res=new findRestaurant(["Shogun", "Tapioca Express", "Burger King", "KFC"],["KFC", "Shogun", "Burger King"]);
+</script>
+</html>

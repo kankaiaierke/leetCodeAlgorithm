@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+ * @param {number[]} A
+ * @return {number[]}
+ */
+var sortArrayByParityII = function(A) {
+	var x=[],y=[];
+    for(var i=0;i<A.length;i++){
+    	if(A[i]%2==0){
+    		x.push(A[i]);
+    	}else{
+    		y.push(A[i]);
+    	};
+    };
+    A=[];
+    for(var i=0;i<x.length;i++){
+    	A.push(x[i]);
+    	A.push(y[i]);
+    };
+    console.log(A);
+    return A;
+};
+		res = new sortArrayByParityII([4,2,5,7]);
+	</script>
+
+</html>

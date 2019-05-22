@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findUnsortedSubarray = function(nums) {
+	var arr=[];
+	for(var i in nums){
+		arr.push(nums[i]);
+	};
+	arr=arr.sort(aAronDie);
+	var start;
+	var end;
+	for(var i=0;i<arr.length;i++){
+		if(arr[i]!=nums[i]){
+			start=i;
+			break;
+		};
+	};
+	for(var i=arr.length-1;i>=0;i--){
+		if(arr[i]!=nums[i]){
+			end=i;
+			break;
+		};
+	};
+	console.log(arr);
+	console.log(nums);
+    console.log(start);
+    console.log(end);
+    return end-start+1;
+};
+function aAronDie(a,b){
+	return a-b;
+};
+var res=new findUnsortedSubarray([2, 6, 4, 8, 10, 9, 15]);
+</script>
+</html>

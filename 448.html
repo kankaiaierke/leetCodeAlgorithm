@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var findDisappearedNumbers = function(nums) {
+	var count=0;
+	nums=nums.sort(aAronDie);
+	var len1=nums.length;
+	for(var i=nums.length-1;i>0;i--){
+		if(nums[i]==nums[i-1]){
+			nums.splice(i,1);
+		};
+	};
+	
+	len2=nums.length;
+    for(var i=0,j=1;i<len2;){
+    	if(j!=nums[i]){
+    		nums.push(j);
+    		count++;
+    	}else{
+    		i++;
+    	};
+    	j++;
+    };
+    var max=getMax(nums);
+	while(max<len1){
+		nums.push(max+1);
+		max++;
+		count++;
+	};
+	console.log(count);
+    for(var i=nums.length-count-1;i>=0;i--){
+    	nums.splice(i,1)
+    };
+    console.log(nums);
+    return nums;
+};
+function aAronDie(a,b){
+	return a-b;
+};
+function getMax(arr){
+	var max=0;
+	for(var i in arr){
+		if(arr[i]>max){
+			max=arr[i];
+		};
+	};
+	return max;
+};
+var res=new findDisappearedNumbers([1,1,1]);
+</script>
+</html>

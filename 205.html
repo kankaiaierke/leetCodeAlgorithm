@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+var isIsomorphic = function(s, t) {
+	if(s.length==0){
+		return true;
+	};
+    s=s.split('');
+	t=t.split('');
+	s=aAronSonDie(s);
+	t=aAronSonDie(t);
+	console.log(s);
+	console.log(t);
+	console.log(arrEq(s,t));
+	return arrEq(s,t);
+};
+function aAronSonDie(arr){
+	var res=[];
+	var arrMid=[]
+	var index=-1;
+	count=0;
+	for(var i=0;i<arr.length;i++){
+		index=arrHas(arrMid,arr[i]);
+		arrMid.push(arr[i]);
+		if(index<0){
+			count++;
+			res.push(count);
+		}else{
+			res.push(res[index]);
+		};
+	};
+	return res;
+};
+function arrEq(arr1,arr2){
+	if(arr1.length!=arr2.length){
+		 return false;
+	};
+    for(var i=0;i<arr1.length;i++){
+        if(arr1[i]!=arr2[i]){
+            return false;
+        };
+    };
+    return true;
+};
+function arrHas(arrs,arr){
+     for(var i=0;i<arrs.length;i++){
+         if(arrs[i]==arr){
+             return i;
+         };
+     };
+    return -1;
+};
+var res=new isIsomorphic("aab","bbc");
+</script>
+</html>

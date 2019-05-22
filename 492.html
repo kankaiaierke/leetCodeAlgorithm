@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number} area
+ * @return {number[]}
+ */
+var constructRectangle = function(area) {
+    var sqrt=parseInt(Math.sqrt(area));
+    var i=sqrt;
+    var j=sqrt;
+    while(i*j!=area){
+    	if(i*j>area){
+    		j--;
+    	}else{
+    		i++;
+    	}
+    };
+    console.log([i,j]);
+};
+var res=new constructRectangle(10000000);
+</script>
+</html>

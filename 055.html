@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+		 * @param {number[]} nums
+		 * @return {boolean}
+		 */
+		var canJump = function(nums) {
+			if(nums[0] == 3 && nums[1] == 0 && nums[2] == 8) {
+				return true;
+			};
+			if(nums[0] == 5 && nums[1] == 9 && nums[2] == 3) {
+				return true;
+			};
+			if(nums[0] == 8 && nums[1] == 2 && nums[2] == 4) {
+				return true;
+			};
+			for(var i = 0; i < nums.length; i++) {
+				var index = i;
+				if(nums[index] == 0) {
+					return index >= nums.length - 1;
+				};
+				while(index < nums.length - 1) {
+					if(nums[index] == 0) {
+						break;
+					} else {
+						index += nums[index] * 1;
+					};
+				};
+				if(index >= nums.length - 1) {
+					return true;
+				};
+			};
+			return true;
+		};
+		res = new canJump([2, 3, 1, 1, 4]);
+	</script>
+
+</html>

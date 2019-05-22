@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {string} pattern
+ * @param {string} str
+ * @return {boolean}
+ */
+var wordPattern = function(pattern, str){
+	pattern=pattern.split('');
+    str=str.split(' ');
+	console.log(aAronDie(str).join('')==aAronDie(pattern).join(''));
+	return aAronDie(str).join('')==aAronDie(pattern).join('');
+};
+function aAronDie(arr){
+	var count=0;
+	var res=[];
+	var resE=[];
+	for(var i=0;i<arr.length;i++){
+		var index=aAronSonDie(res,arr[i])
+		if(index<0){
+			res.push(arr[i]);
+			resE.push(count);
+			count++;
+		}else{
+			resE.push(resE[index]);
+		};
+	};
+	return resE;
+};
+function aAronSonDie(arr,obj){
+	for(var i=0;i<arr.length;i++){
+		if(arr[i]==obj){
+			return i;
+		};
+	};
+	return -1;
+};
+var res=new wordPattern("abba","dog cat cat dog");
+</script>
+</html>

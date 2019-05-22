@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var pivotIndex = function(nums) {
+	var res=-1;
+    for(var i=0;i<nums.length;i++){
+    	console.log(aAronDie(nums,0,i-1)==aAronDie(nums,i+1,nums.length-1));
+    	if(aAronDie(nums,0,i-1)==aAronDie(nums,i+1,nums.length-1)){
+    		res=i;
+    	};
+    };
+    console.log(res);
+};
+function aAronDie(arr,i,j){
+	var sum=0;
+	for(var n=i;n<=j;n++){
+		sum+=arr[n];
+	};
+	return sum;
+};
+var res=new pivotIndex([-1,-1,0,1,1,0]);
+</script>
+</html>

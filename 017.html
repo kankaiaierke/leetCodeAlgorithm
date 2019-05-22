@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+	  /**
+ * @param {string} digits
+ * @return {string[]}
+ */
+var letterCombinations = function(digits) {
+    var res=[];
+    if(digits.length==0){
+    	return res;
+    }
+    var dict = ["abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"];
+    res.push("");
+    for (var i = 0; i < digits.length; i++) {
+        var n = res.length;
+        var str = dict[digits[i] - '2'];
+        for (var j = 0; j < n; j++) {
+            var tmp = res[0];
+            res.shift();
+            for (var k = 0; k < str.length; k++) {
+                res.push(tmp + str[k]);
+            }
+        }
+    };
+    console.log(res);
+    return res;
+};
+res = new letterCombinations("23");
+</script>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number} num
+ * @return {string}
+ */
+var toHex = function(num) {
+	if(num<0){
+		num+=4294967296;
+	};
+	 console.log(num.toString(16));
+	 var res=[];
+	 while(num/16>=1){
+	 	res.unshift(aAronDie(num%16))
+	 	num=parseInt(num/16);
+	 };
+	 if(num>0){
+	 	res.unshift(aAronDie(num));
+	 };
+	 res=res.join('');
+	 console.log(res);
+	 return res;
+};
+function aAronDie(n){
+	if(n>9){
+		return String.fromCharCode(55+n).toLowerCase();
+	}else{
+		return n+'';
+	};
+};
+var res=new toHex(16);
+</script>
+</html>

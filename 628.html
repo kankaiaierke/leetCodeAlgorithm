@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var maximumProduct = function(nums) {
+    var arr1=[],arr2=[];
+    for(var i in nums){
+    	if(nums[i]>0){
+    		arr1.push(nums[i]);
+    	}else{
+    		arr2.push(nums[i]);
+    	};
+    };
+    arr1=arr1.sort(aAronDie).reverse();
+    arr2=arr2.sort(aAronDie);
+    var sum1=0;sum2=0;
+  
+    if(arr1.length>2){
+    	 sum1=arr1[0]*arr1[1]*arr1[2];
+    };
+     if(arr1.length==2){
+    	 sum1=arr1[0]*arr1[1]*arr2[arr2.length-1];
+    };
+     if(arr1.length==1){
+    	 sum1=arr1[0]*arr2[0]*arr2[1];
+    };
+    if(arr1.length==0){
+    	 sum1=arr2[arr2.length-3]*arr2[arr2.length-2]*arr2[arr2.length-1];
+    };
+    if(arr2.length>2){
+    	if(arr1.length>0){
+    		sum2=arr1[0]*arr2[0]*arr2[1];
+    	}else{
+    		sum2=arr2[arr2.length-3]*arr2[arr2.length-2]*arr2[arr2.length-1];
+    	};
+    };
+    console.log(Math.max(sum1,sum2));
+    return Math.max(sum1,sum2);
+};
+function aAronDie(a,b){
+	return a-b;
+};
+var res=new maximumProduct([-1,-2,-3]);
+</script>
+</html>

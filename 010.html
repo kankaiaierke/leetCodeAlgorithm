@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**https://blog.csdn.net/u014265088/article/details/52574639
+ * @param {string} s
+ * @param {string} p
+ * @return {boolean}
+ */
+var isMatch = function(s, p) {
+    /*s=s.split('').reverse();
+    p=p.split('').reverse();
+    for(var i=0;i<p.length;){
+    	if(p[i]=='*'){
+    		if(p[i+1]=='.'){
+    			return true;
+    		};
+    		while(s[i]==p[i+1]){
+    			s.splice(i,1);
+    		};
+    		p.splice(i,2);
+    	}else{
+    		if(p[i]=='.'){
+	    		s.splice(i,1);
+		    	p.splice(i,1);
+	    	}else{
+	    		if(s[i]==p[i]){
+		    		s.splice(i,1);
+		    		p.splice(i,1);
+		    	}else{
+		    		 console.log(false);
+	   				 return false;
+		    	};
+		    	if(s.length==0){
+		    		console.log(p.length==0);
+		    		return p.length==0;
+		    	};
+	    	};
+    	};
+    	if(s.length==0){
+    		console.log(true);
+    		return true;
+    	};
+    };
+    console.log(false);
+    return false;*/
+    len_s = s.length;
+    len_p = p.length;
+    dp=[];
+    dp[0]=[];
+    dp[0][0] = true
+        for(var j=1;j<=len_p;j++){
+        	if(p[j] == '*'){
+        		 dp[0][j+1] = dp [0][j-1];
+        	};
+       };
+        for(var i=1;i<=len_s+1;i++){
+        	dp[i]=[];
+        	for(var j=1;j<=len_p+1;j++){
+        		if(s[i-1] == p[j-1]||p[j-1]=='.'){
+        			dp[i][j] = dp[i-1][j-1]
+        		}else if(p[j-1] == '*'){
+        			dp[i][j] = (dp[i-1][j-2] && (p[j-2] == s[i-1] || p[j-2] == '.'))|| dp[i][j-2] || (dp[i-1][j] && (s[i-1] == p[j-2] || p[j-2] =='.'));
+        		};
+        	};
+        };      
+        console.log(Boolean(undefined));
+        return Boolean(dp[len_s][len_p]);
+};
+res = new isMatch("mississippi","mis*is*p*.");
+</script>
+</html>

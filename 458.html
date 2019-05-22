@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number} buckets
+ * @param {number} minutesToDie
+ * @param {number} minutesToTest
+ * @return {number}
+ */
+var poorPigs = function(buckets, minutesToDie, minutesToTest) {
+	if(buckets==1){
+		return 0;
+	};
+    var times=parseInt(minutesToTest/minutesToDie);
+    if(buckets<=times+1){
+		return 1;
+	};
+    var n=1;
+    while(aAronDie(n,times)<buckets/2){
+    	n++;
+    };
+    console.log(n);
+    return n;
+};
+function aAronDie(num,len){
+	var res=1;
+	for(i=0;i<len;i++){
+		res*=num;
+	};
+	return res;
+};
+var res=new poorPigs(5,15,60);
+</script>
+</html>

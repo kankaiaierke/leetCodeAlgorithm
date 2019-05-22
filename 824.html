@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+	 /**
+ * @param {string} S
+ * @return {string}
+ */
+var toGoatLatin = function(S) {
+    var res='';
+    S=S.split(' ');
+    for(var i in S){
+    	S[i]=S[i].split('');
+    	if(S[i][0]!='a'&&S[i][0]!='e'&&S[i][0]!='i'&&S[i][0]!='o'&&S[i][0]!='u'&&S[i][0]!='A'&&S[i][0]!='E'&&S[i][0]!='I'&&S[i][0]!='O'&&S[i][0]!='U'){
+    		S[i].push(S[i].shift());
+    	};
+    	S[i].push('ma');
+    	for(var j=0;j<=i;j++){
+    		S[i].push('a');
+    	};
+    	S[i]=S[i].join('');
+    };
+    S=S.join(' ');
+    console.log(S);
+    return S;
+};
+res = new toGoatLatin("The quick brown fox jumped over the lazy dog");
+	</script>
+
+</html>

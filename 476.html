@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number} num
+ * @return {number}
+ */
+var findComplement = function(num) {
+    num=num.toString(2).split('').reverse();
+    var res=0;
+    var n=1;
+    for(var i in num){
+    	if(num[i]==1){
+    		num[i]=0;
+    	}else{
+    		num[i]=1;
+    	};
+    	res+=num[i]*n;
+    	n*=2;
+    };
+    console.log(num);
+    console.log(res);
+    return res;
+};
+var res=new findComplement(5);
+</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+	 * @param {string} J
+	 * @param {string} S
+	 * @return {number}
+	 */
+	var numJewelsInStones = function(J, S) {
+	    var count=0;
+	    for(var i in S){
+	    	if(J.indexOf(S[i])>=0){
+	    		count++;
+	    	};
+	    };
+	    console.log(count);
+	    return count;
+	};
+		var res = new numJewelsInStones("aA","aAAbbbb");
+	</script>
+
+</html>

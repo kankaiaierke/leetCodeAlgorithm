@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var countPrimes = function(n) {
+	var count=0;
+	for(var i=2;i<=n;i++){
+		if(aAronDie(i)){
+			count++;
+		};
+	};
+	console.log(count);
+    return count;
+};
+function aAronDie(num){
+	if(num<2){
+		return false;
+	};
+	len=Math.sqrt(num);
+	for(var i=2;i<=len;i++){
+		if(num%i==0){
+			return false;
+		};
+	};
+	return true;
+};
+var res=new countPrimes(10);
+</script>
+</html>

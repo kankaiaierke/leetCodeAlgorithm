@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+		 * @param {number[][]} matrix
+		 * @return {boolean}
+		 */
+		var isToeplitzMatrix = function(matrix) {
+			matrix=aAronFatherDie(matrix);
+			console.log(matrix);
+			for(var i in matrix){
+				if(!aAronDie(matrix[i])){
+					console.log(false);
+					return false;
+				};
+			};
+		    console.log(true);
+		    return true;
+		};
+		function aAronFatherDie(arr){
+			var res={};
+			for(var i=0;i<arr.length;i++){
+				for(var j=0;j<arr[i].length;j++){
+					var num=i-j;
+					if(num in res){
+						res[num].push(arr[i][j]);
+					}else{
+						res[num]=[arr[i][j]];
+					};
+				};
+			};
+			arr=[];
+			for(var key in res){
+				arr.push(res[key]);
+			};
+			return arr;
+		};
+		function aAronDie(arr){
+			arr=arr.sort(aAronSonDie);
+			for(var i=1;i<arr.length;i++){
+				if(arr[i-1]!=arr[i]){
+					return false;
+				};
+			};
+			return true;
+		};
+		function aAronSonDie(a,b){
+			return a-b;
+		};
+		var res = new isToeplitzMatrix([[58,25,63],[30,58,25],[90,30,58]]);
+	</script>
+
+</html>

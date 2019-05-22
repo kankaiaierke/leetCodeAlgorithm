@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+		 * @param {string} S
+		 * @return {number}
+		 */
+		var minFlipsMonoIncr = function(S) {
+			var len = S.length;
+			var min = -1;
+			for(var i = 0; i < len; i++) {
+				var sum = 0;
+				var fort = S.substring(0, i).replace(/0/g,'').length;
+				var end = S.substring(i + 1, len).replace(/1/g,'').length;
+				sum = fort + end;
+				if(min < 0 || min > sum) {
+					min = sum;
+				};
+			};
+			console.log(min);
+			return min;
+		};
+		res = new minFlipsMonoIncr("00011000");
+	</script>
+
+</html>

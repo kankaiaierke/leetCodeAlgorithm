@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {string} s
+ * @param {string} p
+ * @return {number[]}
+ */
+var findAnagrams = function(s, p) {
+    var arr={};
+    for(var i=0;i<p.length;i++){
+    	if(p.substring(i,i+1) in arr){
+    		arr[p.substring(i,i+1)]++;
+    	}else{
+    		arr[p.substring(i,i+1)]=1;
+    	};
+    };
+    var res=[];
+    var left=0,right=0,count=p.length;
+    while(right<s.length){
+        arr[s.substring(right,right+1)]--;
+        if(arr[s.substring(right,right+1)]>=0){
+        	count--;
+        }
+        if(right-left==p.length-1){
+            if(count==0){
+            	res.push(left);
+            };
+            if(arr[s.substring(left,left+1)]>=0){
+            	count++;
+            }
+            arr[s.substring(left,left+1)]++;
+            left++;
+        }
+        right++;
+    }
+    console.log(res);
+    return res;
+};
+var res=new findAnagrams("abab","ab");
+</script>
+</html>

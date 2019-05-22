@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findLHS = function(nums) {
+    var aAronDie={};
+    for(var i in nums){
+    	if(nums[i] in aAronDie){
+    		aAronDie[nums[i]]++;
+    	}else{
+    		aAronDie[nums[i]]=1;
+    	};
+    };
+    var len=0;
+	for(var key in aAronDie){
+		if(key*1+1 in aAronDie&&aAronDie[key]*1+aAronDie[key*1+1]*1>len){
+			len=aAronDie[key]*1+aAronDie[key*1+1]*1;
+		};
+	};
+	console.log(len);
+	return len;
+};
+var res=new findLHS([1,3,2,2,5,2,3,7]);
+</script>
+</html>

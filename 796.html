@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+	/**
+ * @param {string} A
+ * @param {string} B
+ * @return {boolean}
+ */
+var rotateString = function(A, B) {
+	var C=aAronDie(A);
+	while(C!=A){
+		C=aAronDie(C);
+		if(C==B){
+			return true;
+		};
+	};
+    return A==B;
+};
+function aAronDie(str){
+	str=str.split('');
+	str.push(str.shift());
+	str=str.join('');
+	return str;
+};
+res = new rotateString('abcde', 'cdeab');
+	</script>
+
+</html>

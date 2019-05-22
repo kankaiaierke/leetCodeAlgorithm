@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number} n
+ * @return {boolean}
+ */
+var isHappy = function(n) {
+	var res;
+	var aAronDie;
+	aAronDie=Math.floor(Math.random()*1000000);
+	do{
+		var aAronSonDie=Math.floor(Math.random()*1000000);
+		res=0;
+		n=n.toString().split('');
+		for(var j=0;j<n.length;j++){
+			res+=parseInt(n[j])*parseInt(n[j]);
+		};
+		n=res;
+		if(aAronSonDie==aAronDie){
+			break;
+		};
+	}while(n!=1);
+	console.log(n==1);
+	return n==1;
+};
+var arr=new isHappy(99);
+</script>
+</html>

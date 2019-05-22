@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var firstUniqChar = function(s) {
+	var arr=s.split('');
+	for(var i=0;i<arr.length;i++){
+		var str=s.replace(arr[i],'');
+		if(str.indexOf(arr[i])<0){
+			console.log(i);
+			return i;
+		}
+	};
+	console.log(-1);
+	return -1;
+};
+var res=new firstUniqChar("leetcode");
+</script>
+</html>

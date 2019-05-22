@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+	 /**
+ * @param {string} str
+ * @return {number}
+ */
+var myAtoi = function(str) {
+    while(str.indexOf(' ')==0){
+    	str=str.replace(' ','');
+    };
+    var res=parseInt(str);
+    if(res){
+    	if(res<=-2147483648){
+    		res=-2147483648;
+    	}else if(res>=2147483647){
+    		res=2147483647;
+    	};
+    	console.log(res);
+    	return res;
+    }else{
+    	console.log(0);
+    	return 0;
+    };
+};
+res = new myAtoi("4193 with words");
+</script>
+
+</html>

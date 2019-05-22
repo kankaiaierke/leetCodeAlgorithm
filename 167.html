@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number[]} numbers
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function(numbers, target) {
+    var i=0;
+	var j=numbers.length-1;
+	while(i<j){
+		if(numbers[i]+numbers[j]==target){
+			console.log([i,j]);
+			return [i+1,j+1];
+		};
+		if(numbers[i]+numbers[j]>=target){
+			j--;
+		}else{
+			i++;
+		};
+	};
+	return false;
+};
+var aAronDie=twoSum([2, 7, 11, 15],9); 
+</script>
+</html>

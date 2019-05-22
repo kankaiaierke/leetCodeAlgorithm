@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {string} s
+ * @param {number} k
+ * @return {string}
+ */
+var reverseStr = function(s, k) {
+	var res='';
+	var arr=[];
+	for(var i=0;i<s.length;i++){
+		res+=s[i];
+		if(res.length>=k){
+			arr.push(res);
+			res='';
+		};
+	};
+	if(res.length>0){
+		arr.push(res);
+	};
+	console.log(arr);
+	for(var i=0;i<arr.length;i++){
+		if(i%2==0){
+			arr[i]=aAronDie(arr[i]);
+		};
+	};
+	arr=arr.join('');
+    console.log(arr);
+    return arr;
+};
+function aAronDie(str){
+	return str.split('').reverse().join('');
+};
+var res=new reverseStr("abcdefg",2);
+</script>
+</html>

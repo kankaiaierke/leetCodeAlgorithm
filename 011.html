@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+	 /**
+ * @param {number[]} height
+ * @return {number}
+ */
+
+var maxArea = function(height) {
+    var left = 0, right = height.length - 1;
+	var maxArea = 0;
+ 
+	while (left < right) {
+		maxArea = Math.max(maxArea, Math.min(height[left], height[right]) * (right - left));
+		if (height[left] < height[right]){
+			left++;
+		}else{
+			right--;
+		};	
+	};
+ 	console.log(maxArea);
+	return maxArea;
+};
+
+var res = new maxArea([28,342,418,485,719,670,878,752,662,994,654,504,929,660,424,85]);
+</script>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number} num
+ * @return {string[]}
+ */
+var readBinaryWatch = function(num) {
+    var res=[];
+	for(i=0;i<=11;i++){
+		for(j=0;j<=59;j++){
+			var sum=count(i.toString(2))+count(j.toString(2));
+			if(j<10){
+				j=0+''+j;
+			};
+			if(sum==num){
+				res.push(i+':'+j);
+			};
+		};
+	};
+	console.log(res);
+	return res;
+};
+function count(n){
+	n=n.split('');
+	var len=0;
+	for(var i=0;i<n.length;){
+		if(n[i]=='1'){
+			len++;
+			n.splice(i,1);
+		}else{
+			i++;
+		};
+	};
+	return len;
+};
+var res=new readBinaryWatch(0);
+</script>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var findNthDigit = function(n) {
+	var index=1;
+	var len=9;
+	while(n>index*len){
+		n -= index*len;
+		index++;
+		len*=10;
+	};
+	var i=parseInt((n-1)/index);
+	var j=(n-1)%index;
+	var num=Math.pow(10,index-1)+i;
+	var res=parseInt(num.toString().charAt(j));
+	console.log([n,i,j,num,res]);
+	return res;
+};
+var res=new findNthDigit(190);
+</script>
+</html>

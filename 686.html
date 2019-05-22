@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {string} A
+ * @param {string} B
+ * @return {number}
+ */
+var repeatedStringMatch = function(A, B) {
+    var len=1;
+    var str=A;
+    while(A.length<B.length*3){
+    	if(A.indexOf(B)>=0){
+    		break;
+    	};
+    	A+=str;
+    	len++;
+    };
+    if(A.indexOf(B)>=0){
+    	console.log(len);
+    	return len;
+    }else{
+         return -1;
+    };
+};
+var res=new repeatedStringMatch("bb","bbbbbbb");
+</script>
+</html>

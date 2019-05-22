@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var findErrorNums = function(nums) {
+	nums=nums.sort(aAronDie);
+	var a,b;
+    for(var i=0;i<nums.length;){
+    	if(nums[i]!=i*1+1&&b==undefined){
+    		b=i*1+1;
+    	};
+    	if(i<nums.length-1&&nums[i]==nums[i+1]){
+    		a=nums[i];
+    		nums.splice(i,1);
+    		nums.push('aAronDie');
+    	}else{
+    		i++;
+    	};
+    };
+    console.log([a,b]);
+    return [a,b];
+};
+function aAronDie(a,b){
+	return a-b;
+};
+var res=new findErrorNums([1,5,3,2,2,7,6,4,8,9]);
+</script>
+</html>

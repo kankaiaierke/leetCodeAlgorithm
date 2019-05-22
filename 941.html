@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+		 * @param {number[]} A
+		 * @return {boolean}
+		 */
+		var validMountainArray = function(A) {
+			if(A.length < 3) {
+				return false;
+			};
+			var eq=A.max();
+			for(var i=eq;i>0;i--){
+				if(A[i]<=A[i-1]){
+					return false;
+				};
+			};
+			for(var i=eq;i<A.length-1;i++){
+				if(A[i]<=A[i+1]){
+					return false;
+				};
+			};
+			console.log(true);
+			return true;
+		};
+		//最大值
+		Array.prototype.max = function() {
+			var max = this[0];
+			var len = this.length;
+			var index=0;
+			for(var i = 1; i < len; i++) {
+				if(this[i] > max) {
+					max = this[i];
+					index=i;
+				}
+			}
+			return index;
+		};
+		res = new validMountainArray([0,1,2,3,4,5,6,7,8,9]);
+	</script>
+
+</html>

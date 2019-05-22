@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+		 * @param {number[]} deck
+		 * @return {boolean}
+		 */
+		var hasGroupsSizeX = function(deck) {
+			if(deck.length < 2) {
+				return false
+			}
+			var obj = {};
+			for(var i = 0; i < deck.length; i++) {
+				if(deck[i] in obj) {
+					obj[deck[i]]++;
+				} else {
+					obj[deck[i]] = 1;
+				};
+			};
+			var len;
+			for(var key in obj) {
+				if(len) {
+					len=gongyue(len,obj[key]);
+				} else {
+					len = obj[key];
+				};
+			};
+			console.log(len);
+			return len!=1;
+		};
+
+		function gongyue(u, v) {
+			var temp = v;
+			while(v != 0) {
+				temp = u % v;
+				u = v;
+				v = temp;
+			}
+			return u;
+		}
+		res = new hasGroupsSizeX([1,1,1,2,2,2,3,3,3]);
+	</script>
+
+</html>

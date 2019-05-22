@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+	 /**
+ * @param {string} s
+ * @param {number} numRows
+ * @return {string}
+ */
+var convert = function(s, numRows) {
+	var arr=[[]];
+	var count=0;
+	//数据存入数组
+    for(var i=0;i<s.length;i++){
+    	if(i+1>aAronDie(numRows,count)){
+    		count++;
+    		arr[count]=[];
+    	};
+    	arr[count].push(s[i]);
+    };
+    arr.splice(0,1);
+    //数组空格填充
+    for(var i in arr){
+    	if(i%(numRows-1)!=0){
+    		var res=arr[i][0];
+    		arr[i]=[];
+    		for(var j=0;j<numRows;j++){
+    			arr[i].push('');
+    		};
+    		arr[i][numRows-1-i%(numRows-1)]=res;
+    	};
+    };
+    //数组汇总
+    var obj={};
+    for(var i in arr){
+    	for(var j in arr[i]){
+    		if(j in obj){
+    			obj[j].push(arr[i][j]);
+    		}else{
+    			obj[j]=[arr[i][j]];
+    		};
+    	};
+    };
+    //对象展开
+    var str='';
+    for(var i in obj){
+    	for(var j in obj[i]){
+    		str+=obj[i][j];
+    	};
+    };
+    console.log(str);
+};
+function aAronDie(numRows,count){
+	var len=0;
+	for(var i=0;i<count;i++){
+		if(i%(numRows-1)==0){
+			len+=numRows;
+		}else{
+			len++;
+		};
+	};
+	return len;
+};
+res = new convert("PAYPALISHIRING",3);
+</script>
+
+</html>

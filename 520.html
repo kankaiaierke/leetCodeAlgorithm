@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {string} word
+ * @return {boolean}
+ */
+var detectCapitalUse = function(word) {
+	var arr1=fister(word.toLocaleLowerCase());
+	var arr2=word.toUpperCase();
+	var arr3=word.toLocaleLowerCase();
+	console.log(arr1==word||arr2==word||arr3==word||word.length<=1);
+    return word;
+};
+function fister(str){
+	str=str.split('');
+	str[0]=str[0].toUpperCase();
+	str=str.join('');
+	return str;
+};
+var res=new detectCapitalUse("FlaG");
+</script>
+</html>

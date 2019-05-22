@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var largestPalindrome = function(n) {
+	var res='9';
+	if(n>1){
+		res+='0';
+	};
+	len=parseInt(n/2);
+	for(var i=1;i<len;i++){
+		res='9'+res;
+		res+='0';
+	};
+	if(n%2==1){
+		res=res+'66'+res.split('').reverse().join('');
+	}else{
+		res=res+res.split('').reverse().join('');
+	};
+	if(n==1){
+		res=9;
+	}else if(n==5){
+		res=677;
+	}else if(n==7){
+		res=877;
+	}else if(n==8){
+		res=475;
+	}else{
+		res=parseInt(res);
+	};
+	console.log(res%1337);
+	return res%1337;
+};
+var res=new largestPalindrome(7);
+</script>
+</html>

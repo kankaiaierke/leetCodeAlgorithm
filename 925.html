@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+ * @param {string} name
+ * @param {string} typed
+ * @return {boolean}
+ */
+var isLongPressedName = function(name, typed) {
+    name=name.split('');
+    typed=typed.split('');
+    var sure,str;
+    for(var i=0;i<name.length;i++){
+    	if(name[i]==typed[i]){
+    		if(i<typed.length-1&&name[i]!=name[i+1]){
+    			while(i<typed.length-1&&name[i]==typed[i+1]){
+	    			typed.splice(i+1,1);
+	    		};
+    		};
+    	}else{
+    		console.log(false);
+    		return false;
+    	}
+    	console.log(typed);
+    };
+    console.log(name.join('')==typed.join(''));
+    return name.join('')==typed.join('');
+};
+		res = new isLongPressedName("saeed","ssaaedd");
+	</script>
+
+</html>

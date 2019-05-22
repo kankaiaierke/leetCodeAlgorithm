@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number[]} flowerbed
+ * @param {number} n
+ * @return {boolean}
+ */
+var canPlaceFlowers = function(flowerbed, n) {
+    var len=0;
+    for(var i=0;i<flowerbed.length;i++){
+    	var aAronDie=true;
+    	if(i>0&&flowerbed[i-1]==1){
+    		aAronDie=false;
+    	};
+    	if(i<flowerbed.length-1&&flowerbed[i+1]==1){
+    		aAronDie=false;
+    	};
+    	if(aAronDie&&flowerbed[i]!=1){
+    		flowerbed[i]=1;
+    		len++;
+    	};
+    };
+    console.log(len);
+    return len>=n;
+};
+var res=new canPlaceFlowers([1,0,0,0,1],2);
+</script>
+</html>

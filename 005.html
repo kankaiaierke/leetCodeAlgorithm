@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var longestPalindrome = function(s) {
+			 if(s.length==1){
+				return s;
+			};
+			s=s.split('');
+			var b=[];
+			var k=1;
+			var str=[];
+			for(var i=0;i<s.length-1;i++){
+				b=[];
+    			b.push(s[i]);
+    			k=1;
+    			if(s[i]==s[i+1]){
+    				b.push(s[i+1]);
+    				while(s[i-k]==s[i+k+1]&&i-k>=0&&i+k<s.length){
+	    				b.unshift(s[i-k]);
+    					b.push(s[i+k+1]);
+	    				k++;
+	    			};
+    			};
+    			if(b.length>str.length){
+    				str=b;
+    			};
+			};
+    		for(var i=1;i<s.length-1;i++){
+    			b=[];
+    			b.push(s[i]);
+    			k=1;
+    			while(s[i-k]==s[i+k]&&i-k>=0&&i+k<s.length){
+    				b.unshift(s[i-k]);
+    				b.push(s[i+k]);
+    				k++;
+    			};
+    			if(b.length>str.length){
+    				str=b;
+    			}
+    		};
+    		console.log(str.join(""));
+    		return str.join("");
+		};
+</script>
+</html>

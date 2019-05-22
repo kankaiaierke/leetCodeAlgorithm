@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+	 /**
+ * @param {string} A
+ * @param {string} B
+ * @return {boolean}
+ */
+var buddyStrings = function(A, B) {
+	if(A==B){
+		var max=0;
+		A=A.split('');
+		var obj={};
+		for(var i in A){
+			if(A[i] in obj){
+				obj[A[i]]++;
+			}else{
+				obj[A[i]]=1;
+			};
+			if(obj[A[i]]>max){
+				max=obj[A[i]];
+			}
+		};
+		console.log(max>1);
+		return max>1;
+  	}else{
+  		if(A.length!=B.length){
+  			return false;
+  		};
+  		var res=[];
+  		for(var i in A){
+  			if(A[i]!=B[i]){
+  				res.push(i);
+  			};
+  		};
+  		if(res.length!=2){
+  			return false;
+  		};
+  		A=A.split('');
+  		var aAronDie;
+  		aAronDie=A[res[0]];
+  		A[res[0]]=A[res[1]];
+  		A[res[1]]=aAronDie;
+  		A=A.join('');
+  		console.log(A==B);
+  		return A==B;
+  	};
+};
+res = new buddyStrings("aaaaaaabc", "aaaaaaacb");
+</script>
+
+</html>
