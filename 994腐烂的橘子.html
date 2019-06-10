@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+		 * @param {number[][]} grid
+		 * @return {number}
+		 */
+		var orangesRotting = function(grid) {
+		    var count = 0;
+		    while(!doRotting(grid)){
+		    	count++;
+		    }
+		    if(findRotByKey(grid)){
+		    	console.log(-1);
+		    	return -1;
+		    }else{
+		    	console.log(count);
+		    	return count;
+		    }
+		};
+		
+		var doRotting = function(grid){
+			var gridStr = JSON.stringify(grid);
+		    console.log(gridStr);
+		    for(var i=0;i<grid.length;i++){
+				for(var j=0;j<grid[i].length;j++){
+					if(grid[i][j] == 1){
+						if(i - 1 >= 0 && grid[i-1][j] == 2){
+							grid[i][j] = 'erke';
+							continue;
+						}
+						if(j - 1 >= 0 && grid[i][j-1] == 2){
+							grid[i][j] = 'erke';
+							continue;
+						}
+						if(i + 1 < grid.length && grid[i+1][j] == 2){
+							grid[i][j] = 'erke';
+							continue;
+						}
+						if(j + 1 < grid[i].length && grid[i][j+1] == 2){
+							grid[i][j] = 'erke';
+							continue;
+						}
+					}
+				}
+			}
+		    for(var i=0;i<grid.length;i++){
+				for(var j=0;j<grid[i].length;j++){
+					if(grid[i][j] == 'erke'){
+						grid[i][j] = 2;
+					}
+				}
+			}
+		    console.log(JSON.stringify(grid));
+		    return JSON.stringify(grid) == gridStr;
+		}
+		
+		var findRotByKey = function(grid,key){
+			if(key === undefined){
+				key = 1;
+			}
+			for(var i=0;i<grid.length;i++){
+				for(var j=0;j<grid[i].length;j++){
+					if(grid[i][j] == key){
+						return true;
+					}
+				}
+			}
+			return false;
+		}
+		var res1 = new orangesRotting([[2,1,1],[1,1,0],[0,1,1]]);
+		var res2 = new orangesRotting([[2,1,1],[0,1,1],[1,0,1]]);
+		var res3 = new orangesRotting([[0,2]]);
+		var res4 = new orangesRotting([[1,2]]);
+	</script>
+
+</html>
