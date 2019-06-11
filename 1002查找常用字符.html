@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+		 * @param {string[]} A
+		 * @return {string[]}
+		 */
+		var commonChars = function(A) {
+			var obj = {};
+			var res=[];
+			for(var i=0;i<A.length;i++){
+		    	for(var j=0;j<A[i].length;j++){
+		    		if(A[i][j] in obj){
+		    			obj[A[i][j]]++;
+		    		}else{
+		    			obj[A[i][j]] = 1;
+		    		}
+		    	}
+		    }
+		    for(var i=0;i<A.length;i++){
+		    	for(var key in obj){
+		    		if(findNum(A[i],key) < obj[key]){
+	    				obj[key] = findNum(A[i],key);
+	    			}
+		    	}
+		    }
+		    for(var key in obj){
+	    		var len = obj[key];
+	    		for(var i=0;i<len;i++){
+	    			res.push(key);
+	    		}
+	    	}
+		    console.log(res);
+		};
+		
+		var findNum = function(str,key){
+			var arr = str.split('');
+			var count = 0;
+			for(var i = 0;i<arr.length;i++){
+				if(arr[i] === key){
+					count++;
+				}
+			}
+			return count;
+		}
+		var res = new commonChars(["cool","lock","cook"]);
+	</script>
+
+</html>
