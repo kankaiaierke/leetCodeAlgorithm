@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+		 * @param {character[][]} board
+		 * @return {number}
+		 */
+		var numRookCaptures = function(board) {
+			var car=[];
+		    for(var i=0;i<board.length;i++){
+		    	for(var j=0;j<board[i].length;j++){
+		    		if(board[i][j] == 'R'){
+		    			car = [i,j];
+		    			break;
+		    		}
+		    	}
+		    	if(car.length > 0){
+		    		break;
+		    	}
+		    }
+		    
+		    var count = 0;
+		    
+		    for(var i=0;i<board.length;i++){
+		    	for(var j=0;j<board[i].length;j++){
+		    		if(board[i][j] != 'p'){
+		    			continue;
+		    		}
+		    		if(i == car[0]){
+		    			var start = j < car[1]?j:car[1];
+		    			var end = j >= car[1]?j:car[1];
+		    			var can = true;
+		    			for(var k=start+1;k<end;k++){
+		    				if(board[i][k] != '.'){
+		    					can = false;
+		    					break;
+		    				}
+		    			}
+		    			if(can){
+		    				count++;
+		    			}
+		    		}
+		    		if(j == car[1]){
+		    			var start = i < car[0]?i:car[0];
+		    			var end = i >= car[0]?i:car[0];
+		    			var can = true;
+		    			for(var k=start+1;k<end;k++){
+		    				if(board[k][j] != '.'){
+		    					can = false;
+		    					break;
+		    				}
+		    			}
+		    			if(can){
+		    				count++;
+		    			}
+		    		}
+		    	}
+		    }
+		    console.log(count);
+		};
+		var res = new numRookCaptures([[".",".",".",".",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".","R",".",".",".","p"],[".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".","."]]);
+	</script>
+
+</html>
