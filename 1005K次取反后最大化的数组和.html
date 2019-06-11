@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+		 * @param {number[]} A
+		 * @param {number} K
+		 * @return {number}
+		 */
+		var largestSumAfterKNegations = function(A, K) {
+		    
+		    for(var i=0;i<K;i++){
+		    	doChange(A);
+		    }
+		    console.log(getSum(A));
+		};
+		
+		var doChange = function(arr){
+			var min = null;
+			var eq;
+			for(var i=0;i<arr.length;i++){
+				if(min === null || min > arr[i]){
+					min = arr[i];
+					eq = i;
+				}
+			}
+			arr[eq]=-arr[eq];
+		};
+		
+		var getSum = function(arr){
+			var sum = 0;
+			for(var i=0;i<arr.length;i++){
+				sum += arr[i];
+			}
+			return sum;
+		};
+		
+		var res = new largestSumAfterKNegations([2,-3,-1,5,-4],2);
+	</script>
+
+</html>
