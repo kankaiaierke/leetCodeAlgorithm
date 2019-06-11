@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+		 * @param {number} N
+		 * @return {number}
+		 */
+		var bitwiseComplement = function(N) {
+		    var res = '';
+		    while(N>1){
+		    	if(N%2 === 0){
+		    		res = '1' + res;
+		    	}else{
+		    		res = '0' + res;
+		    	}
+		    	
+		    	N = N>>1;
+		    }
+		    if(N%2 === 0){
+		    		res = '1' + res;
+		    	}else{
+		    		res = '0' + res;
+		    	}
+	    	
+		    res = res.split('');
+		    
+		    res = res.reverse();
+		    
+		    var sum=0;
+		    var j=1;
+		    for(var i=0;i<res.length;i++){
+		    	sum += res[i]*j;
+		    	j = j<<1;
+		    }
+		    
+		    return sum;
+		};
+		
+		var res = new bitwiseComplement(5);
+	</script>
+
+</html>
