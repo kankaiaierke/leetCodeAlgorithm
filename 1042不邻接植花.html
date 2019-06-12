@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+		 * @param {number} N
+		 * @param {number[][]} paths
+		 * @return {number[]}
+		 */
+		var gardenNoAdj = function(N, paths) {
+		    var garden ={};
+		    var res = [];
+            for(var i=0;i<paths.length;i++){
+                res.push(0);
+            }
+            if(paths.length == 0){
+                res=[];
+                 for(var i=0;i<N;i++){
+                    res.push(1);
+                }
+                return res;
+            }
+		    for(var i=0;i<paths.length;i++){
+		    	if(paths[i][0] in garden){
+		    		if(garden[paths[i][0]].indexOf(paths[i][1]) < 0){
+		    			garden[paths[i][0]].push(paths[i][1]);
+		    		}
+		    	}else{
+		    		garden[paths[i][0]] = [paths[i][1]];
+		    	}
+		    	if(paths[i][1] in garden){
+		    		if(garden[paths[i][1]].indexOf(paths[i][0]) < 0){
+		    			garden[paths[i][1]].push(paths[i][0]);
+		    		}
+		    	}else{
+		    		garden[paths[i][1]] = [paths[i][0]];
+		    	}
+		    }
+		    for(var i=1;i<=N;i++){
+		    	for(var k=1;k<=4;k++){
+		    		var eq=-1;
+		    		if(i in garden){
+		    			for(var j=0;j<garden[i].length;j++){
+			    			if(res[garden[i][j]-1] == k){
+			    				eq=j;
+			    				break;
+			    			}
+			    		}
+			    		if(eq<0){
+			    			res[i-1]=k;
+			    			break;
+			    		}
+		    		}else{
+		    			res[i-1]=k;
+		    			break;
+		    		}
+		    		
+		    	}
+		    }
+		    console.log(res);
+            return res;
+		};
+		
+		var res = new gardenNoAdj(10000,[[1,2]]);
+	</script>
+
+</html>
