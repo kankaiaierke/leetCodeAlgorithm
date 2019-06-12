@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+		 * @param {number[]} stones
+		 * @return {number}
+		 */
+		var lastStoneWeight = function(stones) {
+		    stones = stones.sort(numsort);
+		    while(stones.length !== 1){
+		    	stones.push(stones.pop()-stones.pop());
+		    	stones = stones.sort(numsort);
+		    }
+		    console.log(stones);
+		    return stones[0];
+		};
+		
+		var numsort=function(a,b){
+			return a-b;
+		}
+		
+		var res = new lastStoneWeight([2,7,4,1,8,1,40,50,5500]);
+	</script>
+
+</html>
