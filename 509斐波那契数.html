@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+		 * @param {number} N
+		 * @return {number}
+		 */
+		var fib = function(N) {
+		    var a, b, s;
+		    if(N == 0){
+                return 0;
+            }
+		    if(N <= 2) {
+		        return 1;
+		    } else {
+		        a = 1;
+		        b = 1;
+		        for(var i = 3; i <= N; i++) {
+		            s = a + b;
+		            a = b;
+		            b = s;
+		        };
+		        return s;
+		    };
+		};
+		
+		var res = new fib(10);
+	</script>
+
+</html>
