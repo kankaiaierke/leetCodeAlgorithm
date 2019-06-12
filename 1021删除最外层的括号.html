@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+		 * @param {string} S
+		 * @return {string}
+		 */
+		var removeOuterParentheses = function(S) {
+			if(S === ''){
+				return S;
+			}
+			var arr = S.split('');
+		    var removeArr = [arr.shift()];
+		    var res = [];
+		    for(var i=0;i<arr.length;i++){
+		    	var len = removeArr.length;
+		    	if(len < 1){
+		    		removeArr.push(arr[i]);
+		    		res.push(i-1);
+		    		res.push(i);
+		    	}else{
+		    		if(removeArr[len-1]+arr[i]=='()'){
+			    		removeArr.pop();
+			    	}else{
+			    		removeArr.push(arr[i]);
+			    	}
+		    	}
+		    }
+		    arr.pop();
+		    for(var l=res.length-1;l>=0;l--){
+		    	arr.splice(res[l],1);
+		    }
+		    console.log(arr.join(''));
+		};
+		
+		var res1 = new removeOuterParentheses("(()())(())");
+		var res2 = new removeOuterParentheses("(()())(())(()(()))");
+		var res3 = new removeOuterParentheses("()()");
+	</script>
+
+</html>
