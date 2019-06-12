@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+		 * @param {number} R
+		 * @param {number} C
+		 * @param {number} r0
+		 * @param {number} c0
+		 * @return {number[][]}
+		 */
+		var allCellsDistOrder = function(R, C, r0, c0) {
+			var res = [];
+		    for(var i=0;i<R;i++){
+		    	for(var j=0;j<C;j++){
+		    		res.push([i,j]);
+		    	}
+		    }
+		    
+		    for(var i =0;i<res.length;i++){
+		    	var mid = null;
+		    	for(var j = i+1;j<res.length;j++){
+		    		if(roadCheck(res[i],res[j],r0,c0)){
+		    			mid = res[i];
+		    			res[i] = res[j];
+		    			res[j] = mid;
+		    		}
+		    	}
+		    	if(mid === null){
+		    		//break;
+		    	}
+		    }
+		    console.log(res);
+		    return res;
+		};
+		
+		var roadCheck = function(a,b,r0,c0){
+	    	var lenA = Math.abs(a[0]-r0)+Math.abs(a[1]-c0);
+	    	var lenB = Math.abs(b[0]-r0)+Math.abs(b[1]-c0);
+			return lenA > lenB;
+		}
+		
+		var res = new allCellsDistOrder(1,100,0,35);
+	</script>
+
+</html>
