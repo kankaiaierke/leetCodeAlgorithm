@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		var isRobotBounded = function(instructions) {
+		    var aim = [
+		    	[0,1],
+		    	[-1,0],
+		    	[0,-1],
+		    	[1,0],
+		    ];
+		    var now = 0;
+		    var obj = [0,0];
+		    var j = 0;
+		    while(j<4){
+		    	for(var i=0;i<instructions.length;i++){
+			    	if(instructions[i] === 'G'){
+			    		obj[0] += aim[now][0];
+			    		obj[1] += aim[now][1];
+			    	}
+			    	if(instructions[i] === 'L'){
+			    		if(now<3){
+			    			now++;
+			    		}else{
+			    			now=0;
+			    		}
+			    	}
+			    	if(instructions[i] === 'R'){
+			    		if(now>0){
+			    			now--;
+			    		}else{
+			    			now=3;
+			    		}
+			    	}
+			    }
+		    	if(obj[0] === 0 && obj[1] === 0 && now === 0){
+			    	return true;
+			    }else{
+			    	j++;
+			    }
+		    }
+		    return false;
+		};
+		
+		var res = new isRobotBounded("GLGLGGLGL");
+	</script>
+
+</html>
