@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+		 * @param {number[][]} points
+		 * @return {boolean}
+		 */
+		var isBoomerang = function(points) {
+			var x = points[0][0] === points[1][0] && points[1][0] === points[2][0];
+			var y = points[0][1] === points[1][1] && points[1][1] === points[2][1];
+			var a = (points[1][0] - points[0][0])/(points[1][1] - points[0][1]);
+			var b = (points[2][0] - points[1][0])/(points[2][1] - points[1][1]);
+			var z = a == b;
+			var w = points[0][0] === points[1][0] && points[0][1] === points[1][1];
+			var v = points[1][0] === points[2][0] && points[1][1] === points[2][1];
+			console.log(x,y,z,w,v);
+		    console.log(!(x || y || z || w || v));
+		    return !(x || y || z || w || v);
+		};
+		
+		var res = new isBoomerang([[0,2],[2,1],[0,0]]);
+	</script>
+
+</html>
