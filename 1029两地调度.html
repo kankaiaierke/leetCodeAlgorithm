@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+		 * @param {number[][]} costs
+		 * @return {number}
+		 */
+		var twoCitySchedCost = function(costs) {
+		    var N = costs.length / 2;
+		    var sum = 0;
+		    var a = N;
+		    var b = N;
+		    while(costs.length > 0){
+		    	var cost = 0;
+		    	var eq = 0;
+		    	for(var i=0;i<costs.length;i++){
+		    		if(Math.abs(costs[i][1] - costs[i][0]) > cost){
+		    			cost = Math.abs(costs[i][1] - costs[i][0]);
+		    			eq = i;
+		    		}
+		    	}
+		    	if(a==0){
+		    		sum = sum + costs[eq][1];
+		    		b--;
+		    	}else if(b==0){
+		    		sum = sum + costs[eq][0];
+		    		a--;
+		    	}else{
+		    		if(costs[eq][0]<costs[eq][1]){
+			    		sum = sum + costs[eq][0];
+			    		a--;
+			    	}else{
+			    		sum = sum + costs[eq][1];
+			    		b--;
+			    	}
+		    	}
+		    	costs.splice(eq,1);
+		    }
+		    console.log(sum);
+		    return sum;
+		};
+		
+		var res = new twoCitySchedCost([[518,518],[71,971],[121,862],[967,607],[138,754],[513,337],[499,873],[337,387],[647,917],[76,417]]);
+	</script>
+
+</html>
