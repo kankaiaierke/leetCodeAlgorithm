@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+ * @param {string} S
+ * @return {string}
+ */
+var removeDuplicates = function(S) {
+    var res = S.split('');
+    while(doRemove(res)){
+    	console.log(res);
+    }
+    return res.join('');
+};
+
+var doRemove = function(arr){
+	var change = false;
+	for(var i=0;i<arr.length-1;){
+		if(arr[i]==arr[i+1]){
+			arr.splice(i,1);
+			arr.splice(i,1);
+			change = true;
+		}else{
+			i++;
+		}
+	}
+	return change;
+}
+		
+		var res = new removeDuplicates("abbaca");
+	</script>
+
+</html>
