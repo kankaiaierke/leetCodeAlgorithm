@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+ * @param {number[]} heights
+ * @return {number}
+ */
+var heightChecker = function(heights) {
+    var res = JSON.parse(JSON.stringify(heights));
+    res = res.sort(numsort);
+    console.log(checkout(heights,res));
+};
+		var checkout = function(arr1,arr2){
+			var len = 0;
+			for(var i =0;i<arr1.length;i++){
+				if(arr1[i] !== arr2[i]){
+					len++;
+				}
+			}
+			return len;
+		}
+		var numsort=function(a,b){
+			return a-b;
+		}
+		var res = new heightChecker([1,1,4,2,1,3]);
+	</script>
+
+</html>
