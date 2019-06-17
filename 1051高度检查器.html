@@ -19,7 +19,8 @@
 var heightChecker = function(heights) {
     var res = JSON.parse(JSON.stringify(heights));
     res = res.sort(numsort);
-    console.log(checkout(heights,res));
+    //console.log(checkout(heights,res));
+    return checkout(heights,res);
 };
 		var checkout = function(arr1,arr2){
 			var len = 0;

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+ * @param {number} N
+ * @return {boolean}
+ */
+var confusingNumber = function(N) {
+    var arr = N.toString().split('');
+    for(var i=0;i<arr.length;i++){
+    	if(numKey[arr[i]] === null){
+    		return false;
+    	}else{
+    		arr[i]=numKey[arr[i]];
+    	}
+    }
+    console.log(arr);
+    return arr.reverse().join('')*1 !== N;
+};
+var numKey = {
+	0:0,
+	1:1,
+	2:null,
+	3:null,
+	4:null,
+	5:null,
+	6:9,
+	7:null,
+	8:8,
+	9:6,
+}
+	var res = new confusingNumber(89);
+	</script>
+
+</html>
