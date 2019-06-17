@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+ * @param {character[][]} board
+ * @return {boolean}
+ */
+var isValidSudoku = function(board) {
+    var res = JSON.parse(JSON.stringify(board));
+    for(var i=0;i<res.length;i++){
+    	var obj = {};
+    	for(var j=0;j<res[i].length;j++){
+    		if(res[i][j] !== '.'){
+	    		if(res[i][j] in obj){
+	    			console.log(false);
+	    			return false;
+	    		}else{
+	    			obj[res[i][j]] = 1;
+	    		}
+	    	}
+    	}	
+    };
+    
+    res = [];
+    for(var i=0;i<board[0].length;i++){
+    	var arr = [];
+    	for(var j=0;j<board.length;j++){
+    		arr.push(board[j][i]);
+    	}
+    	res.push(arr);
+    }
+    for(var i=0;i<res.length;i++){
+    	var obj = {};
+    	for(var j=0;j<res[i].length;j++){
+    		if(res[i][j] !== '.'){
+	    		if(res[i][j] in obj){
+	    			console.log(false);
+	    			return false;
+	    		}else{
+	    			obj[res[i][j]] = 1;
+	    		}
+	    	}
+    	}	
+    };
+    
+    res = [];
+    for(var i=1;i<board.length;i+=3){
+    	
+    	for(var j=1;j<board[i].length;j+=3){
+    		var arr = [];
+    		arr.push(board[i-1][j-1]);
+    		arr.push(board[i-1][j]);
+    		arr.push(board[i-1][j+1]);
+    		arr.push(board[i][j-1]);
+    		arr.push(board[i][j]);
+    		arr.push(board[i][j+1]);
+    		arr.push(board[i+1][j-1]);
+    		arr.push(board[i+1][j]);
+    		arr.push(board[i+1][j+1]);
+    		res.push(arr);
+    	}
+    }
+    for(var i=0;i<res.length;i++){
+    	var obj = {};
+    	for(var j=0;j<res[i].length;j++){
+    		if(res[i][j] !== '.'){
+	    		if(res[i][j] in obj){
+	    			console.log(false);
+	    			return false;
+	    		}else{
+	    			obj[res[i][j]] = 1;
+	    		}
+	    	}
+    	}	
+    };
+    
+    console.log(true);
+    return true;
+};
+	var res = new isValidSudoku([
+  ["8","3",".",".","7",".",".",".","."],
+  ["6",".",".","1","9","5",".",".","."],
+  [".","9","8",".",".",".",".","6","."],
+  ["8",".",".",".","6",".",".",".","3"],
+  ["4",".",".","8",".","3",".",".","1"],
+  ["7",".",".",".","2",".",".",".","6"],
+  [".","6",".",".",".",".","2","8","."],
+  [".",".",".","4","1","9",".",".","5"],
+  [".",".",".",".","8",".",".","7","9"]
+]);
+	</script>
+
+</html>
