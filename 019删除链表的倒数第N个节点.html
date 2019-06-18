@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @param {number} n
+ * @return {ListNode}
+ */
+var removeNthFromEnd = function(head, n) {
+    //console.log(head.val);
+    var obj = head;
+    var len = 0;
+    if(obj){
+       len++;
+    }else{
+        return false;
+    }
+    while(obj.next){
+        len++;
+        obj=obj.next;
+    }
+    
+    var eq = len - n;
+    if(eq === 0){
+        head = head.next;
+        return head;
+    }
+    obj = head;
+    for(var i=0;i<eq-1;i++){
+        obj = obj.next;
+    }
+    if(obj.next == null){
+        head=null
+        return head;
+    }
+    if(obj.next.next){
+        obj.next = obj.next.next;
+    }else{
+        obj.next = null;
+    }
+    return head;
+};
+	</script>
+
+</html>
