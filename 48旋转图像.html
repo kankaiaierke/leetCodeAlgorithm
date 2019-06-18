@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+ * @param {number[][]} matrix
+ * @return {void} Do not return anything, modify matrix in-place instead.
+ */
+var rotate = function(matrix) {
+	var len = matrix.length;
+	
+	while(matrix[0].length>0){
+		var arr = [];
+		for(var i=len-1;i>=0;i--){
+			arr.push(matrix[i].shift());
+		}
+		matrix.push(arr);
+	}
+	while(matrix[0].length === 0){
+		matrix.shift();
+	}
+    console.log(matrix)
+    return matrix;
+};  
+	var res = new rotate([
+  [ 5, 1, 9,11],
+  [ 2, 4, 8,10],
+  [13, 3, 6, 7],
+  [15,14,12,16]
+]);
+	</script>
+
+</html>
