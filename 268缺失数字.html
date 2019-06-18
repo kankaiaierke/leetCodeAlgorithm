@@ -16,13 +16,12 @@
  */
 var missingNumber = function(nums) {
     nums=nums.sort(aAronDie);
-	for(var i=0;i<nums.length-1;i++){
-		if(nums[i]+1!=nums[i+1]){
-			console.log(nums[i]+1);
-			return nums[i]+1;
+	for(var i=0;i<nums.length;i++){
+		if(nums[i]!=i){
+			return i;
 		};
 	};
-	return nums[nums.length-1];
+	return nums[nums.length-1]+1;
 };
 function aAronDie(a,b){
 	return a-b;
