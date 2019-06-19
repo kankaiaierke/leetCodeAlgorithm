@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+</head>
+<body erke-hide>
+</body>
+<script>
+/**
+ * @param {number[]} nums
+ */
+var Solution = function(nums) {
+    this.nums = nums;
+    this.olds = [];
+    for(var i=0;i<nums.length;i++){
+         this.olds.push(nums[i]);
+    }
+};
+
+/**
+ * Resets the array to its original configuration and return it.
+ * @return {number[]}
+ */
+Solution.prototype.reset = function() {
+    this.nums = [];
+    for(var i=0;i<this.olds.length;i++){
+         this.nums.push(this.olds[i]);
+    }
+    return this.nums;
+};
+
+/**
+ * Returns a random shuffling of the array.
+ * @return {number[]}
+ */
+Solution.prototype.shuffle = function() {
+    var arr=[];
+    while(this.nums.length>1){
+        var eq = Math.ceil(Math.random()*(this.nums.length));
+        while(eq == 0){
+            eq = Math.ceil(Math.random()*(this.nums.length));
+        }
+        arr.push(this.nums[eq-1]);
+        this.nums.splice(eq-1,1);
+    }
+    if(this.nums.length == 1){
+       arr.push(this.nums.pop());
+    }
+    this.nums = arr;
+    this.nums= this.nums.sort(function(){ return 0.5 - Math.random() }) 
+    return this.nums;
+};
+
+/** 
+ * Your Solution object will be instantiated and called as such:
+ * var obj = new Solution(nums)
+ * var param_1 = obj.reset()
+ * var param_2 = obj.shuffle()
+ */
+</script>
+</html>
