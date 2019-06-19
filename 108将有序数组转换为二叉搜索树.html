@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {number[]} nums
+ * @return {TreeNode}
+ */
+var sortedArrayToBST = function(nums) {
+    if(nums.length<1){
+        return null;
+    }
+    
+    return makeTree(nums,0,nums.length-1);
+};
+var makeTree = function(nums,l,r){
+    if(l>r){
+        return null;
+    }
+    var m = l+parseInt((r-l)/2);
+    var root = new TreeNode(nums[m]);
+    root.left = makeTree(nums,l,m-1);
+    root.right = makeTree(nums,m+1,r);
+    return root;
+};
+	</script>
+
+</html>
