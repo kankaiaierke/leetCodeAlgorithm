@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {boolean}
+ */
+var isSymmetric = function(root) {
+    if (!root){
+        return true;
+    }
+    if(!root.left && !root.right){
+        return true;
+    }
+    if(!root.left || !root.right){
+        return false;
+    }
+    if(root.left.val != root.right.val){
+        return false;
+    }
+    return Symmetric(root.left,root.right);
+};
+
+var Symmetric = function(left,right){
+    if(!left && !right){
+        return true;
+    }
+    if(!left || !right){
+        return false;
+    }
+    if(left.val === right.val){
+        return Symmetric(left.left,right.right) && Symmetric(left.right,right.left);
+    }else{
+        return false;
+    }
+};
+	</script>
+
+</html>
