@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var reverseList = function(head) {
+    if(head){
+        var arr = [];
+        var now = head;
+        while(now){
+            arr.push(now.val);
+            now = now.next;
+        }
+        arr = arr.reverse();
+        head = new ListNode(arr.shift());
+        var now = head;
+        while(arr.length>0){
+             now.next = new ListNode(arr.shift());
+             now = now.next;
+        }
+        return head;
+    }else{
+        return null;
+    }
+};
+	</script>
+
+</html>
