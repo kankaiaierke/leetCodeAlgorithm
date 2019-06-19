@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var minDepth = function(root) {
+    if(!root){
+        return 0;
+    }
+    root.index = 1;
+    var arr = [root];
+    while(arr.length > 0){
+        var node = arr.shift();
+        if(!node.left && !node.right){
+            return node.index;
+        }
+        if(node.left){
+            node.left.index = node.index+1;
+            arr.push(node.left);
+        }
+        if(node.right){
+            node.right.index = node.index+1;
+            arr.push(node.right);
+        }
+    }
+};
+	</script>
+
+</html>
