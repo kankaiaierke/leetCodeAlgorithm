@@ -25,8 +25,69 @@
  * @return {boolean}
  */
 var hasPathSum = function(root, sum) {
-    
+    if(!root){
+        return false;
+    }
+    res = [];
+    obj = [];
+    findTree(root);
+    var mid =[];
+    for(var i=0;i<res.length;i++){
+        mid.push(res[i].val);
+    }
+    obj.push(JSON.parse(JSON.stringify(mid)));
+    for(var i=0;i<obj.length;i++){
+        if(sumArr(obj[i]) == sum){
+            return true;
+        }
+    }
+    return false;
 };
+var res = [];
+var obj = [];
+var findTree = function(node){
+    if(!node){
+        return;
+    }
+    if('index' in node){
+        
+    }else{
+        node.index = 0;
+    }
+    if(res.length > 0 && node.index <= res[res.length-1].index){
+       var mid =[];
+       for(var i=0;i<res.length;i++){
+           mid.push(res[i].val);
+       }
+       var len = res[res.length-1].index - node.index;
+       obj.push(JSON.parse(JSON.stringify(mid)));
+       for(var i=0;i<=len;i++){
+            res.pop();
+       }
+    }else{
+        
+    }
+    res.push({
+        val:node.val,
+        index:node.index
+    });
+    
+    if(node.left){
+        node.left.index = node.index+1;
+        findTree(node.left);
+    }
+    if(node.right){
+        node.right.index = node.index+1;
+        findTree(node.right);
+    }
+}
+function sumArr(arr){
+    var sum = 0;
+    for(var i=0;i<arr.length;i++){
+        sum += arr[i];
+    }
+    return sum;
+}
 	</script>
 
 </html>
