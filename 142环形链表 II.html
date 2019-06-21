@@ -25,44 +25,40 @@
  * @return {ListNode}
  */
 var detectCycle = function(head) {
-    if(!head || !head.next){
+    if(!head){
         return null;
     }
-    var a = head;
-    var b = head;
-    var re = 0;
-    while(a&&b){
-        if(re > 0 && a.val == b.val){
-            a=head;
-            b=b;
-            while(a&&b){
-                if(a.val == b.val){
-                    return a;
-                }else{
-                    a =a.next;
-                    b=b.next;
-                }
-            }
-        }
-        re++;
-       if(a.next){
-           a=a.next;
+    var node = head;
+    var arr = [];
+    while (node != null) {
+        if (findArr(arr,node)>=0) {
+            return node;
         }else{
-            return null;
+            arr.push(node);
+            node = node.next;
         }
-       if(b.next){
-           b=b.next;
-        }else{
-            return null;
-        }
-        if(b.next){
-           b=b.next;
-        }else{
-            return null;
-        }
-    }
+    }  
     return null;
 };
+var findArr = function(arr,key){
+    var eq=-1;
+    for(var i=0;i<arr.length;i++){
+        if(arr[i].val === key.val){
+            if(!arr[i].next && !key.next){
+                eq = i
+                break;
+            }
+            if(!arr[i].next || !key.next){
+                continue;
+            }
+            if(arr[i].next.val == key.next.val){
+                eq = i
+                break;
+            }
+        }
+    }
+    return eq;
+}
 	</script>
 
 </html>
