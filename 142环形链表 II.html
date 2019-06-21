@@ -22,9 +22,9 @@
 
 /**
  * @param {ListNode} head
- * @return {boolean}
+ * @return {ListNode}
  */
-var hasCycle = function(head) {
+var detectCycle = function(head) {
     if(!head || !head.next){
         return false;
     }
@@ -33,26 +33,35 @@ var hasCycle = function(head) {
     var re = 0;
     while(a&&b){
         if(re > 0 && a.val == b.val){
-            return true;
+            a=head;
+            b=b;
+            while(a&&b){
+                if(a.val == b.val){
+                    return a;
+                }else{
+                    a =a.next;
+                    b=b.next;
+                }
+            }
         }
         re++;
        if(a.next){
            a=a.next;
         }else{
-            return false;
+            return null;
         }
        if(b.next){
            b=b.next;
         }else{
-            return false;
+            return null;
         }
         if(b.next){
            b=b.next;
         }else{
-            return false;
+            return null;
         }
     }
-    return false;
+    return null;
 };
 	</script>
 
