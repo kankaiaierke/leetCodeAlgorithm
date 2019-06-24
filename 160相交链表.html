@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+
+/**
+ * @param {ListNode} headA
+ * @param {ListNode} headB
+ * @return {ListNode}
+ */
+var getIntersectionNode = function(headA, headB) {
+    if(!headA || !headB){
+        return null;
+    }
+    
+    var nodeA = headA;
+    var arrA = [];
+    if(nodeA){
+        nodeA.prev = null;
+    }
+    while(nodeA){
+        arrA.push(nodeA);
+        if(nodeA.next){
+            nodeA.next.prev = nodeA;
+        }
+        nodeA = nodeA.next;
+    }
+    arrA = arrA.reverse();
+    
+    var nodeB = headB;
+    var arrB = [];
+    if(nodeB){
+        nodeB.prev = null;
+    }
+    while(nodeB){
+        arrB.push(nodeB);
+        if(nodeB.next){
+            nodeB.next.prev = nodeB;
+        }
+        nodeB = nodeB.next;
+    }
+    arrB = arrB.reverse();
+    
+    var len=arrA.length<arrB.length?arrA.length:arrB.length;
+    if(!equalNode(arrA[0],arrB[0])){
+       return null;
+    }
+    for(var i=1;i<len;i++){
+        if(!equalNode(arrA[i],arrB[i])){
+            return arrA[i-1];
+        }
+    }
+    
+    if(arrA.length<arrB.length){
+        return arrA[arrA.length-1];
+    }else{
+        return arrB[arrB.length-1];
+    }
+    
+    
+};
+
+var equalNode =function(nodeA,nodeB){
+    if(nodeA.val != nodeB.val){
+        return false;
+    }
+    if(!nodeA.next && !nodeB.next){
+        if(!nodeA.prev && !nodeB.prev){
+            return true;
+        }
+        if(!nodeA.prev || !nodeB.prev){
+            return false;
+        }
+        return nodeA.prev.val === nodeB.prev.val;
+    }else{
+        if(!nodeA.next || !nodeB.next){
+            return false;
+        }
+        if(nodeA.next.val === nodeB.next.val){
+            if(!nodeA.prev && !nodeB.prev){
+                return true;
+            }
+            if(!nodeA.prev || !nodeB.prev){
+                return false;
+            }
+            return nodeA.prev.val === nodeB.prev.val;
+        }else{
+            return false;
+        }
+    }
+}
+	</script>
+
+</html>
