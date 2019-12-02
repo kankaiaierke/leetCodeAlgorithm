@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+		 * @param {number[][]} dominoes
+		 * @return {number}
+		 */
+		var numEquivDominoPairs = function(dominoes) {
+			let len = 0;
+			for(let i = 0;i<dominoes.length;i++){
+				dominoes[i] = dominoes[i].sort().join('');
+			}
+			dominoes = dominoes.sort();
+			let res = dominoes[0];
+			let add = 1;
+			for(let i = 1;i<dominoes.length;i++){
+				if(res == dominoes[i]){
+					len += add;
+					add++;
+				}else{
+					add = 1;
+					res = dominoes[i];
+				}
+			}
+			console.log(len);
+			return len;
+		};
+	var res = new numEquivDominoPairs([[1,2],[1,2],[1,1],[1,2],[1,2],[2,2]]);
+	</script>
+
+</html>
