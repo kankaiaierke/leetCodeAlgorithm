@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+		 * @param {number} n
+		 * @return {number}
+		 */
+		var tribonacci = function(n) {
+			if(n == 0){
+				return 0;
+			}
+			if(n == 1 || n == 2){
+				return 1;
+			}
+			if(n == 3){
+				return 2;
+			}
+			let s = 0;
+			let a = 1;
+			let b = 1;
+			let c = 2;
+			for(var i = 4; i <= n; i++) {
+				s = a + b + c;
+				a = b;
+				b = c;
+				c = s;
+			};
+			console.log(s);
+			return s;
+		};
+	var res = new tribonacci(4);
+	</script>
+
+</html>
