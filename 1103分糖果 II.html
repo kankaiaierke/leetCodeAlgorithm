@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+		 * @param {number} candies
+		 * @param {number} num_people
+		 * @return {number[]}
+		 */
+		var distributeCandies = function(candies, num_people) {
+			let res = [];
+			for(let i = 0;i < num_people;i++){
+				res.push(0);
+			}
+			let count = 0;
+			while(candies > 0){
+				let index = count % num_people;
+				count++;
+				let num = candies>count?count:candies;
+				res[index] += num;
+				candies -= num;
+			}
+			console.log(res);
+			return res;
+		};
+	var res = new distributeCandies(7,4);
+	</script>
+
+</html>
