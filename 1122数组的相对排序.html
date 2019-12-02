@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+		 * @param {number[]} arr1
+		 * @param {number[]} arr2
+		 * @return {number[]}
+		 */
+		var relativeSortArray = function(arr1, arr2) {
+			let res = [];
+			for(let i = 0;i<arr2.length;i++){
+				let eq = arr1.indexOf(arr2[i]);
+				while(eq >= 0){
+					let num = arr1[0];
+					arr1[0] = arr1[eq];
+					arr1[eq] = num;
+					res.push(arr1.shift());
+					eq = arr1.indexOf(arr2[i]);
+				}
+			}
+			arr1 = arr1.sort(numSort);
+			while(arr1.length > 0){
+				res.push(arr1.shift());
+			}
+			return res;
+		};
+
+		//数组查找
+		Array.prototype.indexOf = function (val) {
+			for (var i = 0; i < this.length; i++) {
+				if (this[i] == val) return i;
+			}
+			return -1;
+		};
+
+		function numSort(a,b) {
+			return a-b;
+		}
+	var res = new relativeSortArray([2,3,1,3,2,4,6,7,9,2,19],[2,1,4,3,9,6]);
+	</script>
+
+</html>
