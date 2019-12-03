@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+		 * @param {string[]} words
+		 * @param {string} chars
+		 * @return {number}
+		 */
+		var countCharacters = function(words, chars) {
+			let len = 0;
+			for(let item of words){
+				item = item.split('').sort();
+				let count = item.length;
+				let res = chars.split('').sort();
+				while(item.length > 0){
+					let eq = res.indexOf(item[0]);
+					if(eq >= 0){
+						item.shift();
+						res.splice(eq,1);
+					}else{
+						break;
+					}
+				}
+				if(item.length === 0){
+					len += count;
+				}
+			}
+			console.log(len);
+		};
+
+		//数组查找
+		Array.prototype.indexOf = function (val) {
+			for (var i = 0; i < this.length; i++) {
+				if (this[i] == val) return i;
+			}
+			return -1;
+		};
+	var res = new countCharacters(["cat","bt","hat","tree"],"atach");
+	</script>
+
+</html>
