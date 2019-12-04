@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+		 * @param {number[]} distance
+		 * @param {number} start
+		 * @param {number} destination
+		 * @return {number}
+		 */
+		var distanceBetweenBusStops = function(distance, start, destination) {
+			if(start === destination){
+				return 0;
+			}
+			let begin = start < destination ? start : destination;
+			let end = start > destination ? start : destination;
+			let sum = 0;
+			for(let item of distance){
+				sum += item;
+			}
+			let num = 0;
+			for(let i = begin;i<end;i++){
+				num += distance[i];
+			}
+			return num < sum - num ? num : sum - num;
+		};
+	var res = new distanceBetweenBusStops([1,2,3,4],0,1);
+	</script>
+
+</html>
