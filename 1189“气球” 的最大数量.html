@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body erke-hide>
+	</body>
+	<script>
+		/**
+		 * @param {string} text
+		 * @return {number}balloon
+		 */
+		var maxNumberOfBalloons = function(text) {
+			text = text.split('').sort().join('');
+			let len = 0;
+			while(text.indexOf('b')>=0 && text.indexOf('a')>=0 && text.indexOf('ll')>=0 && text.indexOf('oo')>=0 && text.indexOf('n')>=0){
+				text = text.replace('b','');
+				text = text.replace('a','');
+				text = text.replace('ll','');
+				text = text.replace('oo','');
+				text = text.replace('n','');
+				len++;
+			}
+			return len;
+		};
+	var res = new maxNumberOfBalloons("nlaebolko");
+	</script>
+
+</html>
